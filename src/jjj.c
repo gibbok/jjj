@@ -34,10 +34,15 @@ void list_dir(struct appstate *state)
         printf("Could not open current directory");
     }
 
+    int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
     {
+
         printf("--------------");
         printf("%s\n", dir_entry->d_name);
+        printf("%i\n", i);
+        i++;
+
         // printf("%s\n", dir_entry->d_type);
     }
 
