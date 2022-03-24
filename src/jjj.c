@@ -4,7 +4,7 @@
 #include <string.h>
 #include "jjj.h"
 
-void update_cwd(struct appstate *state)
+void get_cwd(struct appstate *state)
 {
     char cwd[256];
     if (getcwd(cwd, sizeof(cwd)) == NULL)
@@ -21,7 +21,7 @@ int main()
 {
     struct appstate app_state = {};
 
-    update_cwd(&app_state);
+    get_cwd(&app_state);
 
     printf("cwd is %s", app_state.cwd);
 
