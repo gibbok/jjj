@@ -2,17 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "jjj.h"
 
 // https://fresh2refresh.com/c-programming/c-passing-struct-to-function/
-void func(struct AppState record);
-struct AppState
-{
-    char cwd[256];
-};
 
-void func(struct AppState record)
+void update_cwd(struct AppState record)
 {
-    printf(" Id is: %d \n", record.cwd);
+    printf(" Id is: %s \n", record.cwd);
 }
 
 // struct update_state_cwd(struct AppState app_state);
