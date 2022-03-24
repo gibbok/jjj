@@ -25,7 +25,7 @@ void print_screen(struct appstate *state)
 
 void list_dir(void)
 {
-    struct dirent *de;
+    struct dirent *dir_entry;
 
     DIR *dr = opendir(".");
 
@@ -34,9 +34,9 @@ void list_dir(void)
         printf("Could not open current directory");
     }
 
-    while ((de = readdir(dr)) != NULL)
+    while ((dir_entry = readdir(dr)) != NULL)
     {
-        printf("%s\n", de->d_name);
+        printf("%s\n", dir_entry->d_name);
     }
 
     closedir(dr);
