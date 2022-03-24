@@ -1,8 +1,8 @@
 #pragma once
 
-struct AppState
+struct appstate
 {
     char cwd[256];
 };
 
-void update_cwd(struct AppState record);
+// void update_cwd(struct appstate *state);
