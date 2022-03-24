@@ -17,13 +17,18 @@ void get_cwd(struct appstate *state)
     }
 }
 
+void print_screen(struct appstate *state)
+{
+    printf("%s", state->cwd);
+}
+
 int main()
 {
     struct appstate app_state = {};
 
     get_cwd(&app_state);
 
-    printf("cwd is %s", app_state.cwd);
+    print_screen(&app_state);
 
     return 0;
 }
