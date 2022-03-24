@@ -1,5 +1,5 @@
 SHELL	= /bin/sh
-PROGRAM = jjj 
+PROGRAM = jjj
 CC 		= gcc
 CFLAGS	= -g -O0 -Wall -Werror
 
