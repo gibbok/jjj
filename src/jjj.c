@@ -36,7 +36,9 @@ void list_dir(char *path)
 
     while ((dir_entry = readdir(dr)) != NULL)
     {
+        printf("--------------");
         printf("%s\n", dir_entry->d_name);
+        // printf("%s\n", dir_entry->d_type);
     }
 
     closedir(dr);
