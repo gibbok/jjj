@@ -24,6 +24,7 @@
         "vector": "c",
         "__debug": "c",
         "allegro5.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "stdbool.h": "c"
     }
 }
