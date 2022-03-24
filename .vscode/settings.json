@@ -23,6 +23,7 @@
         "utility": "c",
         "vector": "c",
         "__debug": "c",
-        "allegro5.h": "c"
+        "allegro5.h": "c",
+        "unistd.h": "c"
     }
 }

@@ -1,12 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-struct app_state
+struct AppState
 {
-    char cwd;
-}
+    char cwd[256];
+};
 
-main()
+char MAX_BUF;
+
+int main()
 {
-    printf("Hello, World!");
+    struct AppState app_state = {};
+
+    printf("Hello, World!\n");
+
+    char cwd[256];
+
+    if (getcwd(cwd, sizeof(cwd)) == NULL)
+    {
+        perror("getcwd() error");
+    }
+    else
+    {
+        strcpy(app_state.cwd, cwd);
+        printf("current working directory is: %s\n", app_state.cwd);
+    }
+
     return 0;
 }
