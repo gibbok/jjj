@@ -23,11 +23,11 @@ void print_screen(struct appstate *state)
     printf("%s", state->cwd);
 }
 
-void list_dir(char *path)
+void list_dir(struct appstate *state)
 {
     struct dirent *dir_entry;
 
-    DIR *dr = opendir(".");
+    DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
     {
@@ -52,7 +52,7 @@ int main()
 
     print_screen(&app_state);
 
-    list_dir(app_state.cwd);
+    list_dir(&app_state);
 
     return 0;
 }
