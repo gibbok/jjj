@@ -11,3 +11,6 @@ clean:
 
 run:
 	./${PROGRAM}.o
+
+dev :
+	make clean && make all && make run

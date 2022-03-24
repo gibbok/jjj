@@ -6,5 +6,5 @@ Minimal terminal file manager
 Compile and run on macOS:
 
 ```shell
-make clean && make all && make run
+make dev 
 ```
