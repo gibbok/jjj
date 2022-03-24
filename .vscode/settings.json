@@ -1,0 +1,28 @@
+{
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "__config": "c",
+        "algorithm": "c",
+        "array": "c",
+        "bit": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "cmath": "c",
+        "complex": "c",
+        "functional": "c",
+        "istream": "c",
+        "iterator": "c",
+        "memory": "c",
+        "mutex": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "string": "c",
+        "string_view": "c",
+        "tuple": "c",
+        "unordered_map": "c",
+        "utility": "c",
+        "vector": "c",
+        "__debug": "c",
+        "allegro5.h": "c"
+    }
+}

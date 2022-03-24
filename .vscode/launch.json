@@ -1,0 +1,17 @@
+{
+    "configurations": [
+    {
+        "preLaunchTask": "${defaultBuildTask}",
+        "name": "(lldb) Launch",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/jjj.out",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "lldb"
+    }
+    ]
+}
