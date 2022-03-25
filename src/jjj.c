@@ -43,12 +43,19 @@ void list_dir(struct AppState *state)
         // create item to push in my data structure
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
-        item.is_dir = 1;
+        if (dir_entry->d_type == DT_DIR)
+        {
+            item.is_dir = 1;
+        }
+        else
+        {
+            item.is_dir = 0;
+        }
 
         state->dir_entries[i] = item;
 
         printf("\n--------------");
-        printf("%d - %s\n", i, state->dir_entries[i].name);
+        printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
         i++;
 
         // printf("%s\n", dir_entry->d_type);

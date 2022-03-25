@@ -25,6 +25,7 @@
         "__debug": "c",
         "allegro5.h": "c",
         "unistd.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "dirent.h": "c"
     }
 }
