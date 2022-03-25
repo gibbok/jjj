@@ -47,9 +47,8 @@ void list_dir(struct AppState *state)
 
         state->dir_entries[i] = item;
 
-        printf("--------------");
-        printf("%s\n", state->dir_entries[i].name);
-        printf("%i\n", i);
+        printf("\n--------------");
+        printf("%d - %s\n", i, state->dir_entries[i].name);
         i++;
 
         // printf("%s\n", dir_entry->d_type);
