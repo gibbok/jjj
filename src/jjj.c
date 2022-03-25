@@ -35,7 +35,11 @@ void print_dir_items(struct AppState *state)
     int i;
     for (i = 0; i < state->dir_entries_total; ++i)
     {
-        printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
+        struct DirItem item = state->dir_entries[i];
+        if (item.is_dir == 1)
+            printf("%d - %s/\n", i, item.name);
+        else
+            printf("%d - %s\n", i, item.name);
     }
 }
 
@@ -54,9 +58,7 @@ void list_dir(struct AppState *state)
     DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
-    {
         printf("Could not open current directory");
-    }
 
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
@@ -64,14 +66,9 @@ void list_dir(struct AppState *state)
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
         if (dir_entry->d_type == DT_DIR)
-        {
-
             item.is_dir = 1;
-        }
         else
-        {
             item.is_dir = 0;
-        }
 
         state->dir_entries[i] = item;
         ++i;
