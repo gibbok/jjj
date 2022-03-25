@@ -22,13 +22,18 @@ void get_cwd(struct AppState *state)
 // Print to screen results
 void print_cwd(struct AppState *state)
 {
-    printf("%s", state->cwd);
+    printf("%s\n", state->cwd);
+}
+
+void print_dir_items_total(struct AppState *state)
+{
+    printf("Total: %i\n", state->dir_entries_total);
 }
 
 void print_dir_items(struct AppState *state)
 {
     int i;
-    for (i = 0; i < 50; ++i)
+    for (i = 0; i < state->dir_entries_total; ++i)
     {
         printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
     }
@@ -37,6 +42,7 @@ void print_dir_items(struct AppState *state)
 void print_screen(struct AppState *state)
 {
     print_cwd(state);
+    print_dir_items_total(state);
     print_dir_items(state);
 };
 
@@ -68,7 +74,8 @@ void list_dir(struct AppState *state)
         }
 
         state->dir_entries[i] = item;
-        i++;
+        ++i;
+        state->dir_entries_total = i;
     }
 
     closedir(dr);
