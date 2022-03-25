@@ -1,15 +1,14 @@
 #pragma once
 #include <dirent.h>
-#include <stdbool.h>
 
-struct direntry
+struct DirItem
 {
     char name[1024];
-    bool is_dir;
+    int is_dir;
 };
 
-struct appstate
+struct AppState
 {
     char cwd[256];
-    struct dirent dir_entries;
+    struct DirItem dir_entries[500];
 };

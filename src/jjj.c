@@ -6,7 +6,7 @@
 #include "jjj.h"
 
 // Get current working directory
-void get_cwd(struct appstate *state)
+void get_cwd(struct AppState *state)
 {
     char cwd[256];
     if (getcwd(cwd, sizeof(cwd)) == NULL)
@@ -20,13 +20,13 @@ void get_cwd(struct appstate *state)
 }
 
 // Print to screen results
-void print_screen(struct appstate *state)
+void print_screen(struct AppState *state)
 {
     printf("%s", state->cwd);
 }
 
 // List directory in application state
-void list_dir(struct appstate *state)
+void list_dir(struct AppState *state)
 {
     struct dirent *dir_entry;
 
@@ -40,9 +40,15 @@ void list_dir(struct appstate *state)
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
     {
+        // create item to push in my data structure
+        struct DirItem item = {};
+        strcpy(item.name, dir_entry->d_name);
+        item.is_dir = 1;
+
+        state->dir_entries[i] = item;
 
         printf("--------------");
-        printf("%s\n", dir_entry->d_name);
+        printf("%s\n", state->dir_entries[i].name);
         printf("%i\n", i);
         i++;
 
@@ -54,7 +60,7 @@ void list_dir(struct appstate *state)
 
 int main()
 {
-    struct appstate app_state = {};
+    struct AppState app_state = {};
 
     get_cwd(&app_state);
 
