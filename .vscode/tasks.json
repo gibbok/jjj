@@ -4,7 +4,7 @@
         {
             "label": "Build program",
             "type": "shell",
-            "command": "make all",
+            "command": "make dev",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

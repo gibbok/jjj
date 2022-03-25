@@ -5,6 +5,7 @@
 #include <dirent.h>
 #include "jjj.h"
 
+// Get current working directory
 void get_cwd(struct appstate *state)
 {
     char cwd[256];
@@ -18,11 +19,13 @@ void get_cwd(struct appstate *state)
     }
 }
 
+// Print to screen results
 void print_screen(struct appstate *state)
 {
     printf("%s", state->cwd);
 }
 
+// List directory in application state
 void list_dir(struct appstate *state)
 {
     struct dirent *dir_entry;
