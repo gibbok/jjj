@@ -10,5 +10,5 @@ struct DirItem
 struct AppState
 {
     char cwd[256];
-    struct DirItem dir_entries[500];
+    struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
 };
