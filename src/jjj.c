@@ -20,10 +20,25 @@ void get_cwd(struct AppState *state)
 }
 
 // Print to screen results
-void print_screen(struct AppState *state)
+void print_cwd(struct AppState *state)
 {
     printf("%s", state->cwd);
 }
+
+void print_dir_items(struct AppState *state)
+{
+    int i;
+    for (i = 0; i < 50; ++i)
+    {
+        printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
+    }
+}
+
+void print_screen(struct AppState *state)
+{
+    print_cwd(state);
+    print_dir_items(state);
+};
 
 // List directory in application state
 void list_dir(struct AppState *state)
@@ -40,11 +55,11 @@ void list_dir(struct AppState *state)
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
     {
-        // create item to push in my data structure
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
         if (dir_entry->d_type == DT_DIR)
         {
+
             item.is_dir = 1;
         }
         else
@@ -53,12 +68,8 @@ void list_dir(struct AppState *state)
         }
 
         state->dir_entries[i] = item;
-
-        printf("\n--------------");
         printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
         i++;
-
-        // printf("%s\n", dir_entry->d_type);
     }
 
     closedir(dr);
@@ -70,9 +81,9 @@ int main()
 
     get_cwd(&app_state);
 
-    print_screen(&app_state);
-
     list_dir(&app_state);
+
+    print_screen(&app_state);
 
     return 0;
 }
