@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <dirent.h>
+#include <stdlib.h>
 #include "jjj.h"
 
 // Get current working directory
@@ -37,14 +38,15 @@ void print_dir_items(struct AppState *state)
     {
         struct DirItem item = state->dir_entries[i];
         if (item.is_dir == 1)
-            printf("%d - %s/\n", i, item.name);
+            printf("%s/\n", item.name);
         else
-            printf("%d - %s\n", i, item.name);
+            printf("%s\n", item.name);
     }
 }
 
 void print_screen(struct AppState *state)
 {
+    system("clear");
     print_cwd(state);
     print_dir_items_total(state);
     print_dir_items(state);
