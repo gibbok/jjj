@@ -68,7 +68,6 @@ void list_dir(struct AppState *state)
         }
 
         state->dir_entries[i] = item;
-        printf("%d - %s - %d\n", i, state->dir_entries[i].name, state->dir_entries[i].is_dir);
         i++;
     }
 
