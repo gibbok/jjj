@@ -26,6 +26,8 @@
         "allegro5.h": "c",
         "unistd.h": "c",
         "stdbool.h": "c",
-        "dirent.h": "c"
-    }
+        "dirent.h": "c",
+        "items.h": "c",
+        "items.c": "cpp"
+    },
 }
