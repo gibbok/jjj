@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <string.h>
 
+#include <curses.h>
+
 struct DirItem
 {
     char name[1024];
