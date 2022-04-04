@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#include <ncurses.h>
+#include <curses.h>
 
 struct DirItem
 {
