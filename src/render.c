@@ -7,12 +7,12 @@
 #include "header/global.h"
 
 // Print to screen results
-void print_cwd(struct AppState *state)
+void render_cwd(struct AppState *state)
 {
     printf("%s\n", state->cwd);
 }
 
-void print_dir_items_total(struct AppState *state)
+void render_dir_items_total(struct AppState *state)
 {
     printf("Total: %i\n", state->dir_entries_total);
 }
@@ -30,10 +30,10 @@ void print_dir_items(struct AppState *state)
     }
 }
 
-void print_screen(struct AppState *state)
+void render_screen(struct AppState *state)
 {
     system("clear");
-    print_cwd(state);
-    print_dir_items_total(state);
+    render_cwd(state);
+    render_dir_items_total(state);
     print_dir_items(state);
 };

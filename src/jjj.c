@@ -10,7 +10,7 @@ int main()
 
     list_dir(&app_state);
 
-    print_screen(&app_state);
+    render_screen(&app_state);
 
     return 0;
 }
