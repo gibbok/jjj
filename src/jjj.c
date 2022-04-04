@@ -4,53 +4,9 @@
 #include <string.h>
 #include <dirent.h>
 #include <stdlib.h>
-#include "jjj.h"
-
-// Get current working directory
-void get_cwd(struct AppState *state)
-{
-    char cwd[256]; // FIXME: find a way to make it platform indipendent
-    if (getcwd(cwd, sizeof(cwd)) == NULL)
-    {
-        perror("getcwd() error");
-    }
-    else
-    {
-        strcpy(state->cwd, cwd);
-    }
-}
-
-// Print to screen results
-void print_cwd(struct AppState *state)
-{
-    printf("%s\n", state->cwd);
-}
-
-void print_dir_items_total(struct AppState *state)
-{
-    printf("Total: %i\n", state->dir_entries_total);
-}
-
-void print_dir_items(struct AppState *state)
-{
-    int i;
-    for (i = 0; i < state->dir_entries_total; ++i)
-    {
-        struct DirItem item = state->dir_entries[i];
-        if (item.is_dir == 1)
-            printf("%s/\n", item.name);
-        else
-            printf("%s\n", item.name);
-    }
-}
-
-void print_screen(struct AppState *state)
-{
-    system("clear");
-    print_cwd(state);
-    print_dir_items_total(state);
-    print_dir_items(state);
-};
+#include "header/global.h"
+#include "items.c"
+#include "render.c"
 
 // List directory in application state
 void list_dir(struct AppState *state)
