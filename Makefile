@@ -1,16 +1,34 @@
 SHELL	= /bin/sh
 PROGRAM = jjj
 CC 		= gcc
+CC2		= "musl-gcc -static" ./configure --prefix=$HOME/musl && make
 CFLAGS	= -g -O0 -Wall -Werror
-
-all:
-	$(CC) ./src/${PROGRAM}.c -o ${PROGRAM}.o $(CFLAGS)
+LIBS    = -lncurses
+BIN_MACOS = macos-x86-64
+BIN_LINUX = linux-x86-64
 
 clean:
-	rm -rf ${PROGRAM}.o *.dSYM
+	rm -f ./bin/${BIN_MACOS}/${PROGRAM}
+	rm -rf ./bin/${BIN_MACOS}/${PROGRAM}.dSYM
+	rm -f ./bin/${BIN_LINUX}/${PROGRAM}
+	stty sane
+
+kill:
+	pkill -9 -f ${PROGRAM}
+
+mac-dev:
+	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(CFLAGS) $(LIBS)
+
+dev:
+	make clean && make mac-dev && make run
 
 run:
-	./${PROGRAM}.o
+	./bin/${BIN_MACOS}/${PROGRAM} /Users
 
-dev :
-	make clean && make all && make run
+build-linux:
+	docker build -t jjj .
+	docker run -dit --name jjj jjj:latest
+	docker cp jjj:/usr/jjj/bin/${BIN_LINUX}/jjj ./bin/${BIN_LINUX}
+
+build-mac:
+	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(LIBS)
