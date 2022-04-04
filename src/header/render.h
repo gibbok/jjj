@@ -1,10 +1,4 @@
 #pragma once
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <dirent.h>
-#include <stdlib.h>
 #include "header/global.h"
 
 // Print to screen results

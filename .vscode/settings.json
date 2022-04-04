@@ -27,6 +27,7 @@
         "unistd.h": "c",
         "stdbool.h": "c",
         "dirent.h": "c",
-        "items.h": "c"
+        "items.h": "c",
+        "items.c": "cpp"
     },
 }
