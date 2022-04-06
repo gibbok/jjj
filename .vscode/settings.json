@@ -29,6 +29,7 @@
         "dirent.h": "c",
         "items.h": "c",
         "items.c": "cpp",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "render.h": "c"
     },
 }

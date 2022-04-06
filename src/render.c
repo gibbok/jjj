@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <dirent.h>
-#include <stdlib.h>
 #include "header/global.h"
+#include "header/inputs.h"
 
 // Print to screen results
 void render_cwd(struct AppState *state)
@@ -38,25 +38,6 @@ void render_screen(struct AppState *state)
     refresh();
 };
 
-#define WIDTH 30
-#define HEIGHT 10
-
-WINDOW *menu_win;
-int highlight = 1;
-int choice = 0;
-int c;
-int startx = 0;
-int starty = 0;
-
-char *choices[] = {
-    "Choice 1",
-    "Choice 2",
-    "Choice 3",
-    "Choice 4",
-    "Exit",
-};
-int n_choices = sizeof(choices) / sizeof(char *);
-
 void render_window()
 {
     menu_win = newwin(HEIGHT, WIDTH, starty, startx);
@@ -84,39 +65,4 @@ void render_menu(WINDOW *menu_win, int highlight)
         ++y;
     }
     wrefresh(menu_win);
-}
-
-void detect_mouse()
-{
-    while (1)
-    {
-        c = wgetch(menu_win);
-        switch (c)
-        {
-        case KEY_UP:
-            if (highlight == 1)
-                highlight = n_choices;
-            else
-                --highlight;
-            break;
-        case KEY_DOWN:
-            if (highlight == n_choices)
-                highlight = 1;
-            else
-                ++highlight;
-            break;
-        case 10:
-            choice = highlight;
-            break;
-        default:
-            refresh();
-            break;
-        }
-        render_menu(menu_win, highlight);
-        if (choice != 0) /* User did a choice come out of the infinite loop */
-            break;
-    }
-    mvprintw(23, 0, "You chose choice %d with choice string %s\n", choice, choices[choice - 1]);
-    clrtoeol();
-    refresh();
 }
