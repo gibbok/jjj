@@ -9,7 +9,7 @@ int main()
     noecho();
     cbreak();
 
-    window();
+    render_window();
     detect_mouse();
     clrtoeol();
     refresh();

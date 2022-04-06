@@ -58,7 +58,7 @@ char *choices[] = {
 int n_choices = sizeof(choices) / sizeof(char *);
 void print_menu(WINDOW *menu_win, int highlight);
 
-void window()
+void render_window()
 {
     menu_win = newwin(HEIGHT, WIDTH, starty, startx);
     keypad(menu_win, TRUE);
@@ -111,7 +111,6 @@ void detect_mouse()
             choice = highlight;
             break;
         default:
-            mvprintw(24, 0, "Charcter pressed is = %3d Hopefully it can be printed as '%c'", c, c);
             refresh();
             break;
         }
