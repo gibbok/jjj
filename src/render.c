@@ -56,7 +56,6 @@ char *choices[] = {
     "Exit",
 };
 int n_choices = sizeof(choices) / sizeof(char *);
-void render_menu(WINDOW *menu_win, int highlight);
 
 void render_window()
 {
