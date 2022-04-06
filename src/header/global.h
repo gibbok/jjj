@@ -6,6 +6,8 @@
 #include <string.h>
 
 #include <curses.h>
+#include "global.h"
+#include "inputs.h"
 
 struct DirItem
 {

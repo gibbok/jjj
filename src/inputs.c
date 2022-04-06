@@ -1,6 +1,5 @@
 #pragma once
 #include "header/global.h"
-#include "header/inputs.h"
 
 void detect_mouse()
 {

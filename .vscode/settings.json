@@ -30,6 +30,7 @@
         "items.h": "c",
         "items.c": "cpp",
         "stdlib.h": "c",
-        "render.h": "c"
+        "render.h": "c",
+        "global.h": "c"
     },
 }
