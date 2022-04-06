@@ -63,7 +63,6 @@ void render_window()
     menu_win = newwin(HEIGHT, WIDTH, starty, startx);
     keypad(menu_win, TRUE);
     refresh();
-    print_menu(menu_win, highlight);
 }
 
 void print_menu(WINDOW *menu_win, int highlight)
