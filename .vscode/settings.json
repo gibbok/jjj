@@ -28,6 +28,7 @@
         "stdbool.h": "c",
         "dirent.h": "c",
         "items.h": "c",
-        "items.c": "cpp"
+        "items.c": "cpp",
+        "stdlib.h": "c"
     },
 }
