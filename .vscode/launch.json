@@ -5,7 +5,7 @@
         "name": "(lldb) Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/jjj.out",
+        "program": "${workspaceFolder}/jjj.o",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
