@@ -10,7 +10,7 @@ int main()
     cbreak();
 
     render_window();
-    print_menu(menu_win, highlight);
+    render_menu(menu_win, highlight);
     detect_mouse();
 
     clrtoeol();

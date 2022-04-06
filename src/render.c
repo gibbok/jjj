@@ -56,7 +56,7 @@ char *choices[] = {
     "Exit",
 };
 int n_choices = sizeof(choices) / sizeof(char *);
-void print_menu(WINDOW *menu_win, int highlight);
+void render_menu(WINDOW *menu_win, int highlight);
 
 void render_window()
 {
@@ -65,7 +65,7 @@ void render_window()
     refresh();
 }
 
-void print_menu(WINDOW *menu_win, int highlight)
+void render_menu(WINDOW *menu_win, int highlight)
 {
     int x, y, i;
 
@@ -113,7 +113,7 @@ void detect_mouse()
             refresh();
             break;
         }
-        print_menu(menu_win, highlight);
+        render_menu(menu_win, highlight);
         if (choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }
