@@ -47,6 +47,7 @@ void render_menu(WINDOW *menu_win, int highlight, struct AppState *app_state)
     x = 2;
     y = 2;
     box(menu_win, 0, 0);
+    // TODO loop in the app state
     for (i = 0; i < n_choices; ++i)
     {
         if (highlight == i + 1) /* High light the present choice */
