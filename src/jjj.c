@@ -18,7 +18,7 @@ int main()
     cbreak();
 
     render_window();
-    render_menu(menu_win, highlight);
+    render_menu(menu_win, highlight, &state);
     detect_mouse(&state);
 
     clrtoeol();

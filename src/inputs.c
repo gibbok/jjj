@@ -26,7 +26,7 @@ void detect_mouse(struct AppState *state)
             refresh();
             break;
         }
-        render_menu(menu_win, highlight);
+        render_menu(menu_win, highlight, state);
         if (choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }

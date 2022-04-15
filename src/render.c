@@ -40,7 +40,7 @@ void render_window()
     refresh();
 }
 
-void render_menu(WINDOW *menu_win, int highlight)
+void render_menu(WINDOW *menu_win, int highlight, struct AppState *app_state)
 {
     int x, y, i;
 
