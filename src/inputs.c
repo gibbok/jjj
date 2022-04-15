@@ -1,4 +1,3 @@
-#pragma once
 #include "header/global.h"
 
 void detect_mouse()

@@ -31,6 +31,8 @@
         "items.c": "cpp",
         "stdlib.h": "c",
         "render.h": "c",
-        "global.h": "c"
+        "global.h": "c",
+        "stdio.h": "c",
+        "string.h": "c"
     },
 }
