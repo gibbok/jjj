@@ -6,13 +6,20 @@
 int main()
 {
     initscr();
+
+    struct AppState state = {};
+
+    get_cwd(&state);
+    list_dir(&state);
+    render_screen(&state);
+
     clear();
     noecho();
     cbreak();
 
     render_window();
     render_menu(menu_win, highlight);
-    detect_mouse();
+    detect_mouse(&state);
 
     clrtoeol();
     endwin();

@@ -1,6 +1,6 @@
 #include "header/global.h"
 
-void detect_mouse()
+void detect_mouse(struct AppState *state)
 {
     while (1)
     {
