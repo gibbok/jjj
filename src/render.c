@@ -12,7 +12,7 @@ void render_dir_items_total(struct AppState *state)
     printw("Total: %i\n", state->dir_entries_total);
 }
 
-void print_dir_items(struct AppState *state)
+void render_dir_items(struct AppState *state)
 {
     int i;
     for (i = 0; i < state->dir_entries_total; ++i)
@@ -29,7 +29,7 @@ void render_screen(struct AppState *state)
 {
     render_cwd(state);
     render_dir_items_total(state);
-    print_dir_items(state);
+    render_dir_items(state);
     refresh();
 };
 
