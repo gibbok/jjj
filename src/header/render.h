@@ -1,5 +1,5 @@
 #pragma once
-#include "header/global.h"
+#include "global.h"
 
 // Print to screen results
 void render_cwd(struct AppState *state)
