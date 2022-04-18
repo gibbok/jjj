@@ -7,7 +7,6 @@
 
 #include <curses.h>
 #include "global.h"
-#include "inputs.h"
 
 struct DirItem
 {
@@ -21,3 +20,14 @@ struct AppState
     struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
     int dir_entries_total;
 };
+
+#define WIDTH 30
+#define HEIGHT 10
+
+WINDOW *menu_win;
+
+int highlight = 1;
+int choice = 0;
+int c;
+int startx = 0;
+int starty = 0;

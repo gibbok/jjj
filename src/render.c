@@ -1,5 +1,4 @@
 #include "header/global.h"
-#include "header/inputs.h"
 
 // Print to screen results
 void render_cwd(struct AppState *state)
