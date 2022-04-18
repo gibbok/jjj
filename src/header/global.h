@@ -28,6 +28,6 @@ WINDOW *menu_win;
 
 int highlight = 1;
 int choice = 0;
-int c;
+int USER_KEY_PRESSED;
 int startx = 0;
 int starty = 0;

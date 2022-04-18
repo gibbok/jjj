@@ -4,8 +4,8 @@ void detect_mouse(struct AppState *state)
 {
     while (1)
     {
-        c = wgetch(menu_win);
-        switch (c)
+        USER_KEY_PRESSED = wgetch(menu_win);
+        switch (USER_KEY_PRESSED)
         {
         case KEY_UP:
             if (highlight == 1)
