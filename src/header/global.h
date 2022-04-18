@@ -12,6 +12,7 @@ struct DirItem
 {
     char name[1024];
     int is_dir;
+    // FIXME add path of the file
 };
 
 struct AppState

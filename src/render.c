@@ -39,24 +39,24 @@ void render_window()
     refresh();
 }
 
-void render_menu(WINDOW *menu_win, struct AppState *app_state)
+void render_menu(WINDOW *menu_win, struct AppState *state)
 {
     int x, y, i;
 
     x = RENDER_START_X;
     y = RENDER_START_Y;
 
-    for (i = 0; i <= app_state->dir_entries_total; ++i)
+    for (i = 0; i <= state->dir_entries_total; ++i)
     {
-        if (app_state->user_highlight == i + 1) /* High light the present choice */
+        if (state->user_highlight == i + 1) /* High light the present choice */
         {
             wattron(menu_win, A_REVERSE);
-            mvwprintw(menu_win, y, x, "%s", app_state->dir_entries[i].name);
+            mvwprintw(menu_win, y, x, "%s", state->dir_entries[i].name);
             wattroff(menu_win, A_REVERSE);
         }
         else
         {
-            mvwprintw(menu_win, y, x, "%s", app_state->dir_entries[i].name);
+            mvwprintw(menu_win, y, x, "%s", state->dir_entries[i].name);
         }
         ++y;
     }
