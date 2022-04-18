@@ -43,8 +43,8 @@ void render_menu(WINDOW *menu_win, struct AppState *app_state)
 {
     int x, y, i;
 
-    x = 2;
-    y = 2;
+    x = RENDER_START_X;
+    y = RENDER_START_Y;
 
     for (i = 0; i <= app_state->dir_entries_total; ++i)
     {
