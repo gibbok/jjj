@@ -31,4 +31,7 @@ struct AppState
 #define RENDER_START_X 0
 #define RENDER_START_Y 0
 
+#define KEY_J 106
+#define KEY_K 107
+
 WINDOW *menu_win;
