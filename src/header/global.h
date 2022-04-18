@@ -29,7 +29,6 @@ struct AppState
 
 WINDOW *menu_win;
 
-int choice = 0;
 int USER_KEY_PRESSED;
 int startx = 0;
 int starty = 0;

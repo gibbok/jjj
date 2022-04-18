@@ -9,6 +9,7 @@ int main()
 
     struct AppState state = {};
     state.highlight = 1;
+    state.choice = 0;
 
     get_cwd(&state);
     list_dir(&state);
