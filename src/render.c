@@ -47,17 +47,17 @@ void render_menu(WINDOW *menu_win, int highlight, struct AppState *app_state)
     x = 2;
     y = 2;
     box(menu_win, 0, 0);
-    // TODO loop in the app state
-    for (i = 0; i < n_choices; ++i)
+
+    for (i = 0; i < app_state->dir_entries_total; ++i)
     {
         if (highlight == i + 1) /* High light the present choice */
         {
             wattron(menu_win, A_REVERSE);
-            mvwprintw(menu_win, y, x, "%s", choices[i]);
+            mvwprintw(menu_win, y, x, "%s", app_state->dir_entries[i].name);
             wattroff(menu_win, A_REVERSE);
         }
         else
-            mvwprintw(menu_win, y, x, "%s", choices[i]);
+            mvwprintw(menu_win, y, x, "%s", app_state->dir_entries[i].name);
         ++y;
     }
     wrefresh(menu_win);
