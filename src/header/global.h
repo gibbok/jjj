@@ -21,7 +21,7 @@ struct AppState
     int dir_entries_total;
     int highlight;
     int choice;
-    int USER_KEY_PRESSED;
+    int key_pressed;
 };
 
 #define WIDTH 30
@@ -29,6 +29,5 @@ struct AppState
 
 WINDOW *menu_win;
 
-int USER_KEY_PRESSED;
 int startx = 0;
 int starty = 0;
