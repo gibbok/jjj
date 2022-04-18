@@ -45,7 +45,6 @@ void render_menu(WINDOW *menu_win, struct AppState *app_state)
 
     x = 2;
     y = 2;
-    box(menu_win, 0, 0);
 
     for (i = 0; i <= app_state->dir_entries_total; ++i)
     {
