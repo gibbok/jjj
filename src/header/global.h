@@ -25,9 +25,9 @@ struct AppState
 };
 
 #define WIDTH 30
-#define HEIGHT 10
+#define HEIGHT 30
+
+#define RENDER_START_X 0
+#define RENDER_START_Y 0
 
 WINDOW *menu_win;
-
-int startx = 0;
-int starty = 0;

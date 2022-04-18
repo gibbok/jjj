@@ -34,7 +34,7 @@ void render_screen(struct AppState *state)
 
 void render_window()
 {
-    menu_win = newwin(HEIGHT, WIDTH, starty, startx);
+    menu_win = newwin(HEIGHT, WIDTH, RENDER_START_Y, RENDER_START_X);
     keypad(menu_win, TRUE);
     refresh();
 }
