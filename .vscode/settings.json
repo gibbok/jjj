@@ -33,6 +33,7 @@
         "render.h": "c",
         "global.h": "c",
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "typeinfo": "c"
     },
 }

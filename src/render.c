@@ -49,7 +49,7 @@ void render_menu(WINDOW *menu_win, struct AppState *app_state)
 
     for (i = 0; i <= app_state->dir_entries_total; ++i)
     {
-        if (app_state->highlight == i + 1) /* High light the present choice */
+        if (app_state->user_highlight == i + 1) /* High light the present choice */
         {
             wattron(menu_win, A_REVERSE);
             mvwprintw(menu_win, y, x, "%s", app_state->dir_entries[i].name);
