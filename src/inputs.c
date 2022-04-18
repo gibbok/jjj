@@ -9,12 +9,12 @@ void detect_mouse(struct AppState *state)
         {
         case KEY_UP:
             if (highlight == 1)
-                highlight = n_choices;
+                highlight = state->dir_entries_total;
             else
                 --highlight;
             break;
         case KEY_DOWN:
-            if (highlight == n_choices)
+            if (highlight == state->dir_entries_total)
                 highlight = 1;
             else
                 ++highlight;
@@ -30,7 +30,7 @@ void detect_mouse(struct AppState *state)
         if (choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }
-    mvprintw(23, 0, "You chose choice %d with choice string %s\n", choice, choices[choice - 1]);
+    mvprintw(23, 0, "You chose choice %d with choice string %s\n", choice, state->dir_entries[choice - 1].name);
     clrtoeol();
     refresh();
 }
