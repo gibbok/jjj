@@ -30,7 +30,6 @@ void detect_mouse(struct AppState *state)
         if (choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }
-    mvprintw(23, 0, "You chose choice %d with choice string %s\n", choice, state->dir_entries[choice - 1].name);
     clrtoeol();
     refresh();
 }
