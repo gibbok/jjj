@@ -8,25 +8,25 @@ void detect_mouse(struct AppState *state)
         switch (USER_KEY_PRESSED)
         {
         case KEY_UP:
-            if (highlight == 1)
-                highlight = state->dir_entries_total;
+            if (state->highlight == 1)
+                state->highlight = state->dir_entries_total;
             else
-                --highlight;
+                --state->highlight;
             break;
         case KEY_DOWN:
-            if (highlight == state->dir_entries_total)
-                highlight = 1;
+            if (state->highlight == state->dir_entries_total)
+                state->highlight = 1;
             else
-                ++highlight;
+                ++state->highlight;
             break;
         case 10:
-            choice = highlight;
+            choice = state->highlight;
             break;
         default:
             refresh();
             break;
         }
-        render_menu(menu_win, highlight, state);
+        render_menu(menu_win, state);
         if (choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }

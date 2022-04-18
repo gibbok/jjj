@@ -8,6 +8,7 @@ int main()
     initscr();
 
     struct AppState state = {};
+    state.highlight = 1;
 
     get_cwd(&state);
     list_dir(&state);
@@ -18,7 +19,7 @@ int main()
     cbreak();
 
     render_window();
-    render_menu(menu_win, highlight, &state);
+    render_menu(menu_win, &state);
     detect_mouse(&state);
 
     clrtoeol();

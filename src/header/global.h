@@ -19,6 +19,9 @@ struct AppState
     char cwd[256];
     struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
     int dir_entries_total;
+    int highlight;
+    int choice;
+    int USER_KEY_PRESSED;
 };
 
 #define WIDTH 30
@@ -26,7 +29,6 @@ struct AppState
 
 WINDOW *menu_win;
 
-int highlight = 1;
 int choice = 0;
 int USER_KEY_PRESSED;
 int startx = 0;
