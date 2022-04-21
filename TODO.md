@@ -7,7 +7,7 @@
 - [x] Code print on screen and refresh
 
 ## Use cases
-- [] User can see the path of the current folder
+- [x] User can see the path of the current folder
 - [x] User can see content for the current folder
 - [x] User can navigate items using `j` and `k` keyboard buttons and related arrow keys
 - [x] User can see an item highlighted when is selected

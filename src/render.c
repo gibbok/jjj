@@ -36,7 +36,9 @@ void render_menu(WINDOW *menu_win, struct AppState *state)
     int x, y, i;
 
     x = RENDER_START_X;
-    y = RENDER_START_Y;
+    y = RENDER_START_Y + 1;
+
+    mvwprintw(menu_win, RENDER_START_Y, x, "%s", state->cwd);
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {

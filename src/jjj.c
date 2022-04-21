@@ -20,6 +20,7 @@ int main()
 
     render_window();
     render_menu(menu_win, &state);
+
     detect_mouse(&state);
 
     clrtoeol();
