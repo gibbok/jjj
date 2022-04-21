@@ -7,7 +7,7 @@ void render_window()
     refresh();
 }
 
-void render_menu(WINDOW *menu_win, struct AppState *state)
+void render(WINDOW *menu_win, struct AppState *state)
 {
     int x, y, i;
 

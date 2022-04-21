@@ -19,7 +19,7 @@ int main()
     cbreak();
 
     render_window();
-    render_menu(menu_win, &state);
+    render(menu_win, &state);
 
     detect_mouse(&state);
 

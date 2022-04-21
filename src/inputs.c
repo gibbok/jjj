@@ -25,11 +25,13 @@ void detect_mouse(struct AppState *state)
         case 10:
             state->user_choice = state->user_highlight;
             break;
+        case KEY_RIGHT:
+            break;
         default:
             refresh();
             break;
         }
-        render_menu(menu_win, state);
+        render(menu_win, state);
         if (state->user_choice != 0) /* User did a choice come out of the infinite loop */
             break;
     }
