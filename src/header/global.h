@@ -25,8 +25,8 @@ struct AppState
     int user_key_pressed;
 };
 
-#define WIDTH 30
-#define HEIGHT 30
+#define WIDTH 100 // TODO get the terminal size here
+#define HEIGHT 100
 
 #define RENDER_START_X 0
 #define RENDER_START_Y 0
