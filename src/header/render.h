@@ -24,11 +24,3 @@ void render_dir_items(struct AppState *state)
             printf("%s\n", item.name);
     }
 }
-
-void render_screen(struct AppState *state)
-{
-    system("clear");
-    render_cwd(state);
-    render_dir_items_total(state);
-    render_dir_items(state);
-};

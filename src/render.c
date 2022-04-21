@@ -24,14 +24,6 @@ void render_dir_items(struct AppState *state)
     }
 }
 
-void render_screen(struct AppState *state)
-{
-    render_cwd(state);
-    render_dir_items_total(state);
-    render_dir_items(state);
-    refresh();
-};
-
 void render_window()
 {
     menu_win = newwin(HEIGHT, WIDTH, RENDER_START_Y, RENDER_START_X);
