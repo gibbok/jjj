@@ -15,6 +15,7 @@ void render(WINDOW *menu_win, struct AppState *state)
     y = RENDER_START_Y + 1;
 
     mvwprintw(menu_win, RENDER_START_Y, x, "%s", state->cwd);
+    mvwprintw(menu_win, 50, x, "Last keypressed was %d", state->user_key_pressed); // dev for debug only
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
