@@ -5,7 +5,7 @@ CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 
 all:
-	$(CC) ./src/${PROGRAM}.c -o ${PROGRAM}.o $(CFLAGS) $(LIBS)
+	$(CC) ./src/${PROGRAM}.c -o ./bin/${PROGRAM}.o $(CFLAGS) $(LIBS)
 
 clean:
 	rm -rf ${PROGRAM}.o *.dSYM

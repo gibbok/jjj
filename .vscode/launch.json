@@ -5,27 +5,12 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "(lldb) Attach",
+        "name": "(lldb) Attach to process",
         "type": "cppdbg",
         "request": "attach",
         "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
         "processId": "${command:pickProcess}",
         "MIMode": "lldb",
-        "preLaunchTask": "clang++ build active file",
-        "stopAtEntry": true,
       },
-      {
-        "name": "clang++ - Build and debug active file",
-        "type": "cppdbg",
-        "request": "launch",
-        "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
-        "args": [],
-        "stopAtEntry": true,
-        "cwd": "${workspaceFolder}",
-        "environment": [],
-        "externalConsole": false,
-        "MIMode": "lldb",
-        "preLaunchTask": "clang++ build active file"
-      }
     ]
   }
