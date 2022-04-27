@@ -13,5 +13,8 @@ clean:
 run:
 	./bin/${PROGRAM}.o
 
-dev :
+stop:
+	pkill -9 -f jjj
+
+dev:
 	make clean && make all && make run
