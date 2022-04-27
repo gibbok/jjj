@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "../bin/${fileBasenameNoExtension}.o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.o",
                 "-lncurses"
             ],
             "options": {
