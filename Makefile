@@ -11,7 +11,7 @@ clean:
 	rm -rf ${PROGRAM}.o *.dSYM
 
 run:
-	./${PROGRAM}.o
+	./bin/${PROGRAM}.o
 
 dev :
 	make clean && make all && make run
