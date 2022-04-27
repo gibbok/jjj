@@ -1,19 +1,30 @@
 #include "header/global.h"
 #include "items.c"
 #include "render.c"
+#include "inputs.c"
 
 int main()
 {
+
     initscr();
 
-    struct AppState app_state = {};
+    struct AppState state = {};
+    state.user_highlight = 1;
+    state.user_choice = 0;
 
-    get_cwd(&app_state);
-    list_dir(&app_state);
-    render_screen(&app_state);
+    get_cwd(&state);
+    list_dir(&state);
 
-    getch();
+    clear();
+    noecho();
+    cbreak();
+
+    render_window();
+    render(menu_win, &state);
+
+    detect_mouse(&state);
+
+    clrtoeol();
     endwin();
-
     return 0;
 }
