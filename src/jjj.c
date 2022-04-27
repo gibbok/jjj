@@ -5,6 +5,7 @@
 
 int main()
 {
+
     initscr();
 
     struct AppState state = {};
