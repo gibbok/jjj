@@ -1,3 +1,4 @@
+#pragma once
 #include "header/global.h"
 #include "render.c"
 
