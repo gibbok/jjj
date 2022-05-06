@@ -1,4 +1,5 @@
 #include "header/global.h"
+#include "render.c"
 
 // Get current working directory
 void get_cwd(struct AppState *state)
@@ -49,6 +50,8 @@ void change_directory(struct AppState *state)
     chdir(state->dir_entries[idx].name);
     get_cwd(state);
     list_dir(state);
+    render(menu_win, state);
+    wclear(menu_win);
 }
 
 // Change directory up
@@ -57,5 +60,6 @@ void change_directory_up(struct AppState *state)
     chdir("..");
     get_cwd(state);
     list_dir(state);
+    render(menu_win, state);
+    wclear(menu_win);
 }
-
