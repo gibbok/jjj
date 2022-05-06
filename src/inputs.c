@@ -30,6 +30,11 @@ void detect_mouse(struct AppState *state)
             render(menu_win, state);
             wclear(menu_win);
             break;
+        case KEY_LEFT:
+            change_directory_up(state);
+            render(menu_win, state);
+            wclear(menu_win);
+            break;
         default:
             refresh();
             break;

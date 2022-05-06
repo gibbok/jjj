@@ -50,3 +50,12 @@ void change_directory(struct AppState *state)
     get_cwd(state);
     list_dir(state);
 }
+
+// Change directory up
+void change_directory_up(struct AppState *state)
+{
+    chdir("..");
+    get_cwd(state);
+    list_dir(state);
+}
+
