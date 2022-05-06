@@ -28,6 +28,7 @@ void detect_mouse(struct AppState *state)
         case KEY_RIGHT:
             change_directory(state);
             render(menu_win, state);
+            werase(menu_win);
             break;
         default:
             refresh();

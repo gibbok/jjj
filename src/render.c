@@ -16,10 +16,10 @@ void render(WINDOW *menu_win, struct AppState *state)
 
     mvwprintw(menu_win, RENDER_START_Y, x, "%s", state->cwd);
     // debug only
-    mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight); 
+    mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight);
     mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
-    mvwprintw(menu_win, RENDER_START_Y + 22, x, "user_choice %d\n", state->user_choice); 
-    mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd); 
+    mvwprintw(menu_win, RENDER_START_Y + 22, x, "user_choice %d\n", state->user_choice);
+    mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd);
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
