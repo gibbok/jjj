@@ -13,9 +13,9 @@
 - [x] User can see an item highlighted when is selected
 - [] User can distinguish a folder as postfixed with e `/` sign
 - [] User can see a file has it has no postfix
-- [] User can select and navigate a folder by pressing `l`  and right key
-- [] User can select a parent folder by pressing `h` and left key
-- [] User can see the path of the current folder or item selected when navigating
+- [x] User can select and navigate a folder by pressing `l`  and right key
+- [x] User can select a parent folder by pressing `h` and left key
+- [x] User can see the path of the current folder or item selected when navigating
 - [] User can select and open an item with the `return` key
 - [] User can exit the program and navigate to selected directory, by pressing `!`
 - [] User can exit the program returning the path for the selected item using `space` 

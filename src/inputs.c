@@ -35,6 +35,10 @@ void detect_mouse(struct AppState *state)
             change_directory_up(state);
             refresh_screen(state);
             break;
+        case KEY_Q:
+            endwin();
+            exit(0);
+            break;
         default:
             refresh();
             break;
