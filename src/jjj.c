@@ -1,4 +1,4 @@
-#include "header/global.h"
+#include "global.h"
 #include "items.c"
 #include "render.c"
 #include "inputs.c"

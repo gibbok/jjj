@@ -1,5 +1,5 @@
 #pragma once
-#include "header/global.h"
+#include "global.h"
 
 void render_window()
 {
