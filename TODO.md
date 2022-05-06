@@ -17,7 +17,6 @@
 - [x] User can select a parent folder by pressing `h` and left key
 - [x] User can see the path of the current folder or item selected when navigating
 - [] User can select and open an item with the `return` key
-- [] User can exit the program and navigate to selected directory, by pressing `!`
 - [] User can exit the program returning the path for the selected item using `space` 
 - [] User can exit the program by pressing `q`
 - [] User can see a list of files updated if the items changed

@@ -35,5 +35,6 @@ struct AppState
 #define KEY_L 108
 #define KEY_H 104
 #define KEY_Q 113
+#define KEY_ESC 27
 
 WINDOW *menu_win;

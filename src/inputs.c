@@ -36,6 +36,7 @@ void detect_mouse(struct AppState *state)
             refresh_screen(state);
             break;
         case KEY_Q:
+        case KEY_ESC:
             endwin();
             exit(0);
             break;
