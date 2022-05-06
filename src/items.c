@@ -41,3 +41,12 @@ void list_dir(struct AppState *state)
 
     closedir(dr);
 }
+
+// Change directory
+void change_directory(struct AppState *state)
+{
+    int idx = state->user_highlight - 1;
+    chdir(state->dir_entries[idx].name);
+    get_cwd(state);
+    list_dir(state);
+}
