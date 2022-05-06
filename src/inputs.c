@@ -26,10 +26,12 @@ void detect_mouse(struct AppState *state)
             state->user_choice = state->user_highlight;
             break;
         case KEY_RIGHT:
+        case KEY_L:
             change_directory(state);
             refresh_screen(state);
             break;
         case KEY_LEFT:
+        case KEY_H:
             change_directory_up(state);
             refresh_screen(state);
             break;
