@@ -12,8 +12,7 @@ int main()
     state.user_highlight = 1;
     state.user_choice = 0;
 
-    get_cwd(&state);
-    list_dir(&state);
+    update_state(&state);
 
     clear();
     noecho();
