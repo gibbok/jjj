@@ -49,16 +49,16 @@ void change_directory(struct AppState *state)
 {
     int idx = state->user_highlight - 1;
     chdir(state->dir_entries[idx].name);
-    get_cwd(state);
-    list_dir(state);
-    render(menu_win, state);
-    wclear(menu_win);
 }
 
 // Change directory up
 void change_directory_up(struct AppState *state)
 {
     chdir("..");
+}
+
+void refresh_screen(struct AppState *state)
+{
     get_cwd(state);
     list_dir(state);
     render(menu_win, state);
