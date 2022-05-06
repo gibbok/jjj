@@ -8,10 +8,10 @@ void render_window()
     refresh();
 }
 
-void render_item(WINDOW *menu_win, int y, int x, bool is_dir, char* name, bool is_active)
+void render_item(WINDOW *menu_win, int y, int x, char *name, bool is_dir, bool is_active)
 {
     int style = is_active == true ? A_REVERSE : A_NORMAL;
-    char* dir_indicator = is_dir == true ? "/" : "";
+    char *dir_indicator = is_dir == true ? "/" : "";
 
     wattron(menu_win, style);
     mvwprintw(menu_win, y, x, "%s%s", name, dir_indicator);
@@ -36,15 +36,11 @@ void render(WINDOW *menu_win, struct AppState *state)
     {
         if (state->user_highlight == i + 1) /* High light the present choice */
         {
-            render_item(menu_win, y, x, state->dir_entries[i].is_dir, state->dir_entries[i].name, true);
-            // wattron(menu_win, A_REVERSE);
-            // mvwprintw(menu_win, y, x, "%s%s", state->dir_entries[i].name, state->dir_entries[i].is_dir == true ? "/" : "");
-            // wattroff(menu_win, A_REVERSE);
+            render_item(menu_win, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, true);
         }
         else
         {
-            render_item(menu_win, y, x, state->dir_entries[i].is_dir, state->dir_entries[i].name, false);
-            // mvwprintw(menu_win, y, x, "%s%s", state->dir_entries[i].name, state->dir_entries[i].is_dir == true ? "/" : "");
+            render_item(menu_win, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, false);
         }
         ++y;
     }
