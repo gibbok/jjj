@@ -27,12 +27,12 @@ void render(WINDOW *menu_win, struct AppState *state)
         if (state->user_highlight == i + 1) /* High light the present choice */
         {
             wattron(menu_win, A_REVERSE);
-            mvwprintw(menu_win, y, x, "%s", state->dir_entries[i].name);
+            mvwprintw(menu_win, y, x, "%s%s", state->dir_entries[i].name, state->dir_entries[i].is_dir == true ? "/" : "");
             wattroff(menu_win, A_REVERSE);
         }
         else
         {
-            mvwprintw(menu_win, y, x, "%s", state->dir_entries[i].name);
+            mvwprintw(menu_win, y, x, "%s%s", state->dir_entries[i].name, state->dir_entries[i].is_dir == true ? "/" : "");
         }
         ++y;
     }

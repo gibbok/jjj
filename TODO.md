@@ -11,7 +11,7 @@
 - [x] User can see content for the current folder
 - [x] User can navigate items using `j` and `k` keyboard buttons and related arrow keys
 - [x] User can see an item highlighted when is selected
-- [] User can distinguish a folder as postfixed with e `/` sign
+- [x] User can distinguish a folder as postfixed with e `/` sign
 - [] User can see a file has it has no postfix
 - [x] User can select and navigate a folder by pressing `l`  and right key
 - [x] User can select a parent folder by pressing `h` and left key
