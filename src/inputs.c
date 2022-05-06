@@ -6,7 +6,6 @@ void detect_mouse(struct AppState *state)
     while (1)
     {
         state->user_key_pressed = wgetch(menu_win);
-        // printw("%d", state->user_key_pressed); // print what user had pressed
         switch (state->user_key_pressed)
         {
         case KEY_UP:
