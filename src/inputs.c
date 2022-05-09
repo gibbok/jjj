@@ -1,6 +1,11 @@
 #pragma once
 #include "global.h"
 
+void bye(void)
+{
+    printf("That was all, folks\n");
+}
+
 void detect_mouse(struct AppState *state)
 {
     while (1)
@@ -38,7 +43,16 @@ void detect_mouse(struct AppState *state)
         case KEY_Q:
         case KEY_ESC:
             endwin();
-            exit(0);
+
+            int i = atexit(bye);
+            if (i != 0)
+            {
+                fprintf(stderr, "cannot set exit function\n");
+                exit(EXIT_FAILURE);
+            }
+
+            exit(EXIT_SUCCESS);
+
             break;
         case KEY_ENTER:
         case KEY_SPACEBAR:
