@@ -8,7 +8,7 @@ Usage examples:
 
 `jjj . | less`
 
-`jjj . | xargs cat`
+`jjj . | xargs open`
 
 ## Development
 
