@@ -3,7 +3,7 @@
 
 void render_window()
 {
-    menu_win = newwin(HEIGHT, WIDTH, RENDER_START_Y, RENDER_START_X);
+    menu_win = newwin(0, 0, RENDER_START_Y, RENDER_START_X);
     keypad(menu_win, TRUE);
     refresh();
 }
