@@ -43,7 +43,7 @@ void detect_mouse(struct AppState *state)
         case KEY_Q:
         case KEY_ESC:
             endwin();
-            printf("%s",state->cwd);
+            printf("%s/%s",state->cwd,state->dir_entries[state->user_highlight - 1].name);
             exit(EXIT_SUCCESS);
             break;
         case KEY_ENTER:
