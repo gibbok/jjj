@@ -1,11 +1,16 @@
-#include "header/global.h"
+#pragma once
+#include "global.h"
+
+void bye(void)
+{
+    printf("That was all, folks\n");
+}
 
 void detect_mouse(struct AppState *state)
 {
     while (1)
     {
         state->user_key_pressed = wgetch(menu_win);
-        // printw("%d", state->user_key_pressed); // print what user had pressed
         switch (state->user_key_pressed)
         {
         case KEY_UP:
@@ -22,18 +27,29 @@ void detect_mouse(struct AppState *state)
             else
                 ++state->user_highlight;
             break;
-        case 10:
-            state->user_choice = state->user_highlight;
-            break;
         case KEY_RIGHT:
+        case KEY_L:
+            change_directory(state);
+            refresh_screen(state);
+            break;
+        case KEY_LEFT:
+        case KEY_H:
+            change_directory_up(state);
+            refresh_screen(state);
+            break;
+        case KEY_Q:
+        case KEY_ESC:
+        case KEY_SPACEBAR:
+        case KEY_RETURN:
+            endwin();
+            render_active_item(state);
+            exit(EXIT_SUCCESS);
             break;
         default:
             refresh();
             break;
         }
         render(menu_win, state);
-        if (state->user_choice != 0) /* User did a choice come out of the infinite loop */
-            break;
     }
     clrtoeol();
     refresh();

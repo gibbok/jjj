@@ -1,4 +1,4 @@
-#include "header/global.h"
+#include "global.h"
 #include "items.c"
 #include "render.c"
 #include "inputs.c"
@@ -6,14 +6,14 @@
 int main()
 {
 
-    initscr();
+    FILE *tty = fopen("/dev/tty", "r+");
+    SCREEN *screen = newterm(NULL, tty, tty);
+    set_term(screen);
 
     struct AppState state = {};
     state.user_highlight = 1;
-    state.user_choice = 0;
 
-    get_cwd(&state);
-    list_dir(&state);
+    update_state(&state);
 
     clear();
     noecho();

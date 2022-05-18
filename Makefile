@@ -4,17 +4,22 @@ CC 		= gcc
 CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 
+# build program
 all:
-	$(CC) ./src/${PROGRAM}.c -o ./bin/${PROGRAM}.o $(CFLAGS) $(LIBS)
+	$(CC) ./src/${PROGRAM}.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
 
+# remove previously built program
 clean:
-	rm -rf ${PROGRAM}.o *.dSYM
+	rm -rf ${PROGRAM}.out *.dSYM
 
+# run program
 run:
-	./bin/${PROGRAM}.o
+	./bin/${PROGRAM}.out
 
+# kill program process
 kill:
 	pkill -9 -f ${PROGRAM}
 
+# run program with a clean start
 dev:
 	make clean && make all && make run
