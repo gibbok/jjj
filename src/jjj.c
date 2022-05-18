@@ -12,7 +12,6 @@ int main()
 
     struct AppState state = {};
     state.user_highlight = 1;
-    state.user_choice = 0;
 
     update_state(&state);
 

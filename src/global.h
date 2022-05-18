@@ -20,7 +20,6 @@ struct AppState
     struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
     int dir_entries_total;
     int user_highlight;
-    int user_choice;
     int user_key_pressed;
 };
 
@@ -36,6 +35,7 @@ struct AppState
 #define KEY_H 104
 #define KEY_Q 113
 #define KEY_ESC 27
+#define KEY_RETURN 10
 #define KEY_SPACEBAR 32
 
 WINDOW *menu_win;

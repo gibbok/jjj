@@ -27,9 +27,6 @@ void detect_mouse(struct AppState *state)
             else
                 ++state->user_highlight;
             break;
-        case 10:
-            state->user_choice = state->user_highlight;
-            break;
         case KEY_RIGHT:
         case KEY_L:
             change_directory(state);
@@ -43,6 +40,7 @@ void detect_mouse(struct AppState *state)
         case KEY_Q:
         case KEY_ESC:
         case KEY_SPACEBAR:
+        case KEY_RETURN:
             endwin();
             render_active_item(state);
             exit(EXIT_SUCCESS);
@@ -52,8 +50,6 @@ void detect_mouse(struct AppState *state)
             break;
         }
         render(menu_win, state);
-        if (state->user_choice != 0) /* User did a choice come out of the infinite loop */
-            break;
     }
     clrtoeol();
     refresh();
