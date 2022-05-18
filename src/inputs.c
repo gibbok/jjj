@@ -43,16 +43,8 @@ void detect_mouse(struct AppState *state)
         case KEY_Q:
         case KEY_ESC:
             endwin();
-
-            int i = atexit(bye);
-            if (i != 0)
-            {
-                fprintf(stderr, "cannot set exit function\n");
-                exit(EXIT_FAILURE);
-            }
-
+            printf("That was all, folks\n");
             exit(EXIT_SUCCESS);
-
             break;
         case KEY_ENTER:
         case KEY_SPACEBAR:
