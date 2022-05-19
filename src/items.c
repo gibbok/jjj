@@ -51,6 +51,11 @@ void change_directory(struct AppState *state)
     chdir(state->dir_entries[idx].name);
 }
 
+void reset_highlight(struct AppState *state)
+{
+    state->user_highlight = 0; // reset hightlight
+}
+
 // Change directory up
 void change_directory_up(struct AppState *state)
 {
