@@ -47,13 +47,15 @@ void list_dir(struct AppState *state)
 // Change directory
 void change_directory(struct AppState *state)
 {
-    int idx = state->user_highlight - 1;
+    int idx = state->user_highlight;
     chdir(state->dir_entries[idx].name);
 }
 
-void reset_highlight(struct AppState *state)
+void reset_state(struct AppState *state)
 {
-    state->user_highlight = 0; // reset hightlight
+    state->user_highlight = 0;
+    // state->dir_entries = [];
+    state->dir_entries_total = 0;
 }
 
 // Change directory up
@@ -70,6 +72,7 @@ void update_state(struct AppState *state)
 
 void refresh_screen(struct AppState *state)
 {
+    reset_state(state);
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
