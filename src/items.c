@@ -31,14 +31,28 @@ void list_dir(struct AppState *state)
     {
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
-        if (dir_entry->d_type == DT_DIR)
-            item.is_dir = 1;
-        else
-            item.is_dir = 0;
 
-        state->dir_entries[i] = item;
-        ++i;
-        state->dir_entries_total = i;
+        switch (dir_entry->d_type)
+        {
+        case DT_DIR:
+            if (strcmp(dir_entry->d_name, ".") == 0)
+                break;
+            if (strcmp(dir_entry->d_name, "..") == 0)
+                break;
+            item.is_dir = 1;
+            state->dir_entries[i] = item;
+            ++i;
+            state->dir_entries_total = i;
+            break;
+        case DT_REG:
+            item.is_dir = 0;
+            state->dir_entries[i] = item;
+            ++i;
+            state->dir_entries_total = i;
+            break;
+        default:
+            break;
+        }
     }
 
     closedir(dr);
