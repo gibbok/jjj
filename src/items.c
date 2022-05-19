@@ -53,8 +53,12 @@ void change_directory(struct AppState *state)
 
 void reset_state(struct AppState *state)
 {
+    for (int i = 0; i <= state->dir_entries_total; ++i)
+    {
+        state->dir_entries[i].is_dir = 0;
+        strcpy(state->dir_entries[i].name, "");
+    }
     state->user_highlight = 0;
-    // state->dir_entries = [];
     state->dir_entries_total = 0;
 }
 
