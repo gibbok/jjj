@@ -10,7 +10,7 @@ void render_window()
 
 void render_active_item(struct AppState *state)
 {
-    printf("%s/%s", state->cwd, state->dir_entries[state->user_highlight - 1].name);
+    printf("%s/%s", state->cwd, state->dir_entries[state->user_highlight].name);
 }
 
 void render_item(WINDOW *menu_win, int y, int x, char *name, bool is_dir, bool is_active)
