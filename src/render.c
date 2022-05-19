@@ -38,7 +38,7 @@ void render(WINDOW *menu_win, struct AppState *state)
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
-        if (state->user_highlight == i + 1) /* High light the present choice */
+        if (state->user_highlight == i) /* High light the present choice */
         {
             render_item(menu_win, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, true);
         }

@@ -11,7 +11,7 @@ int main()
     set_term(screen);
 
     struct AppState state = {};
-    state.user_highlight = 1;
+    state.user_highlight = 0;
 
     update_state(&state);
 

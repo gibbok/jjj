@@ -15,15 +15,15 @@ void detect_mouse(struct AppState *state)
         {
         case KEY_UP:
         case KEY_K:
-            if (state->user_highlight == 1)
-                state->user_highlight = state->dir_entries_total;
+            if (state->user_highlight == 0)
+                state->user_highlight = state->dir_entries_total - 1;
             else
                 --state->user_highlight;
             break;
         case KEY_DOWN:
         case KEY_J:
-            if (state->user_highlight == state->dir_entries_total)
-                state->user_highlight = 1;
+            if (state->user_highlight == state->dir_entries_total - 1)
+                state->user_highlight = 0;
             else
                 ++state->user_highlight;
             break;
