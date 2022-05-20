@@ -43,6 +43,7 @@ void detect_mouse(struct AppState *state)
         case KEY_RETURN:
             endwin();
             render_active_item(state);
+            free(state->dir_entries);
             exit(EXIT_SUCCESS);
             break;
         default:
