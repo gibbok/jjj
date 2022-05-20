@@ -8,21 +8,6 @@
 #include <curses.h>
 #include <limits.h>
 
-struct DirItem
-{
-    char name[NAME_MAX];
-    int is_dir;
-};
-
-struct AppState
-{
-    char cwd[PATH_MAX];
-    struct DirItem *dir_entries;
-    int dir_entries_total;
-    int user_highlight;
-    int user_key_pressed;
-};
-
 #define RENDER_START_X 0
 #define RENDER_START_Y 0
 
@@ -34,5 +19,20 @@ struct AppState
 #define KEY_ESC 27
 #define KEY_RETURN 10
 #define KEY_SPACEBAR 32
+
+struct dir_item
+{
+    char name[NAME_MAX];
+    int is_dir;
+};
+
+struct app_state
+{
+    char cwd[PATH_MAX];
+    struct dir_item *dir_entries;
+    int dir_entries_total;
+    int user_highlight;
+    int user_key_pressed;
+};
 
 WINDOW *menu_win;

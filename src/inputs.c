@@ -1,12 +1,7 @@
 #pragma once
 #include "global.h"
 
-void bye(void)
-{
-    printf("That was all, folks\n");
-}
-
-void detect_mouse(struct AppState *state)
+void detect_mouse(struct app_state *state)
 {
     while (1)
     {
@@ -30,12 +25,12 @@ void detect_mouse(struct AppState *state)
         case KEY_RIGHT:
         case KEY_L:
             change_directory(state);
-            refresh_screen(state);
+            refresh_screen(state, false);
             break;
         case KEY_LEFT:
         case KEY_H:
             change_directory_up(state);
-            refresh_screen(state);
+            refresh_screen(state, true);
             break;
         case KEY_Q:
         case KEY_ESC:

@@ -2,8 +2,7 @@
 #include "global.h"
 #include "render.c"
 
-// Get current working directory
-void get_cwd(struct AppState *state)
+void get_cwd(struct app_state *state)
 {
     char cwd[256]; // FIXME: find a way to make it platform indipendent
     if (getcwd(cwd, sizeof(cwd)) == NULL)
@@ -16,10 +15,9 @@ void get_cwd(struct AppState *state)
     }
 }
 
-// List directory in application state
-void list_dir(struct AppState *state)
+void list_dir(struct app_state *state)
 {
-    state->dir_entries = malloc((2* sizeof(struct AppState)));
+    state->dir_entries = malloc((2* sizeof(struct app_state)));
 
     struct dirent *dir_entry;
 
@@ -31,8 +29,8 @@ void list_dir(struct AppState *state)
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
     {
-        state->dir_entries = realloc(state->dir_entries, sizeof(struct AppState) * 2 + i);
-        struct DirItem item = {};
+        state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * 2 + i);
+        struct dir_item item = {};
         strcpy(item.name, dir_entry->d_name);
 
         switch (dir_entry->d_type)
@@ -61,14 +59,13 @@ void list_dir(struct AppState *state)
     closedir(dr);
 }
 
-// Change directory
-void change_directory(struct AppState *state)
+void change_directory(struct app_state *state)
 {
     int idx = state->user_highlight;
     chdir(state->dir_entries[idx].name);
 }
 
-void reset_state(struct AppState *state)
+void reset_state(struct app_state *state)
 {
     for (int i = 0; i <= state->dir_entries_total; ++i)
     {
@@ -79,21 +76,22 @@ void reset_state(struct AppState *state)
     state->dir_entries_total = 0;
 }
 
-// Change directory up
-void change_directory_up(struct AppState *state)
+void change_directory_up(struct app_state *state)
 {
     chdir("..");
 }
 
-void update_state(struct AppState *state)
+void update_state(struct app_state *state)
 {
     get_cwd(state);
     list_dir(state);
 }
 
-void refresh_screen(struct AppState *state)
+void refresh_screen(struct app_state *state, bool can_reset)
 {
-    reset_state(state);
+    if(can_reset)
+        reset_state(state);
+        
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
