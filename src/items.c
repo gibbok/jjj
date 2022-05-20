@@ -31,14 +31,28 @@ void list_dir(struct AppState *state)
     {
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
-        if (dir_entry->d_type == DT_DIR)
-            item.is_dir = 1;
-        else
-            item.is_dir = 0;
 
-        state->dir_entries[i] = item;
-        ++i;
-        state->dir_entries_total = i;
+        switch (dir_entry->d_type)
+        {
+        case DT_DIR:
+            if (strcmp(dir_entry->d_name, ".") == 0)
+                break;
+            if (strcmp(dir_entry->d_name, "..") == 0)
+                break;
+            item.is_dir = 1;
+            state->dir_entries[i] = item;
+            ++i;
+            state->dir_entries_total = i;
+            break;
+        case DT_REG:
+            item.is_dir = 0;
+            state->dir_entries[i] = item;
+            ++i;
+            state->dir_entries_total = i;
+            break;
+        default:
+            break;
+        }
     }
 
     closedir(dr);
@@ -47,8 +61,19 @@ void list_dir(struct AppState *state)
 // Change directory
 void change_directory(struct AppState *state)
 {
-    int idx = state->user_highlight - 1;
+    int idx = state->user_highlight;
     chdir(state->dir_entries[idx].name);
+}
+
+void reset_state(struct AppState *state)
+{
+    for (int i = 0; i <= state->dir_entries_total; ++i)
+    {
+        state->dir_entries[i].is_dir = 0;
+        strcpy(state->dir_entries[i].name, "");
+    }
+    state->user_highlight = 0;
+    state->dir_entries_total = 0;
 }
 
 // Change directory up
@@ -65,6 +90,7 @@ void update_state(struct AppState *state)
 
 void refresh_screen(struct AppState *state)
 {
+    reset_state(state);
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
