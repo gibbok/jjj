@@ -6,9 +6,20 @@
 
 Usage examples:
 
+```shell
 `jjj . | less`
 
 `jjj . | xargs open`
+```
+
+## Key binding
+
+```
+j => move down one line
+k => move up one line
+l => if selected line is a directory visit it otherwise do nothing
+h => move up one folder 
+```
 
 ## Development
 
