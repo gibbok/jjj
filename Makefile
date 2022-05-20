@@ -20,6 +20,6 @@ run:
 kill:
 	pkill -9 -f ${PROGRAM}
 
-# run program with a clean start
+# start program from a clean slate 
 dev:
 	make clean && make all && make run

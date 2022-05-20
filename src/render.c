@@ -8,7 +8,7 @@ void render_window()
     refresh();
 }
 
-void render_active_item(struct AppState *state)
+void render_active_item(struct app_state *state)
 {
     printf("%s/%s", state->cwd, state->dir_entries[state->user_highlight].name);
 }
@@ -23,7 +23,7 @@ void render_item(WINDOW *menu_win, int y, int x, char *name, bool is_dir, bool i
     wattroff(menu_win, style);
 }
 
-void render(WINDOW *menu_win, struct AppState *state)
+void render(WINDOW *menu_win, struct app_state *state)
 {
     int x, y, i;
 
@@ -31,11 +31,12 @@ void render(WINDOW *menu_win, struct AppState *state)
     y = RENDER_START_Y + 1;
 
     mvwprintw(menu_win, RENDER_START_Y, x, "%s", state->cwd);
-    // debug only
-    mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight);
-    mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
-    mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd);
-    mvwprintw(menu_win, RENDER_START_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
+    
+    // use only when debugging
+    // mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight);
+    // mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
+    // mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd);
+    // mvwprintw(menu_win, RENDER_START_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
