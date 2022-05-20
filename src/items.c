@@ -19,6 +19,8 @@ void get_cwd(struct AppState *state)
 // List directory in application state
 void list_dir(struct AppState *state)
 {
+    state->dir_entries = malloc((2* sizeof(struct AppState)));
+
     struct dirent *dir_entry;
 
     DIR *dr = opendir(state->cwd);
@@ -29,6 +31,7 @@ void list_dir(struct AppState *state)
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
     {
+        state->dir_entries = realloc(state->dir_entries, sizeof(struct AppState) * 2 + i);
         struct DirItem item = {};
         strcpy(item.name, dir_entry->d_name);
 

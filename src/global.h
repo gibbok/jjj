@@ -17,7 +17,7 @@ struct DirItem
 struct AppState
 {
     char cwd[PATH_MAX];
-    struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
+    struct DirItem *dir_entries;
     int dir_entries_total;
     int user_highlight;
     int user_key_pressed;
