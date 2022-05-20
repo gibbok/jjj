@@ -10,7 +10,7 @@ int main()
     SCREEN *screen = newterm(NULL, tty, tty);
     set_term(screen);
 
-    struct AppState state = {};
+    struct app_state state = {};
     state.user_highlight = 0;
 
     update_state(&state);

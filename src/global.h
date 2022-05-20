@@ -8,16 +8,16 @@
 #include <curses.h>
 #include <limits.h>
 
-struct DirItem
+struct dir_item
 {
     char name[NAME_MAX];
     int is_dir;
 };
 
-struct AppState
+struct app_state
 {
     char cwd[PATH_MAX];
-    struct DirItem dir_entries[500]; // FIXME: must use dynamic allocation
+    struct dir_item dir_entries[500]; // FIXME: must use dynamic allocation
     int dir_entries_total;
     int user_highlight;
     int user_key_pressed;

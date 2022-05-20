@@ -8,7 +8,7 @@ void render_window()
     refresh();
 }
 
-void render_active_item(struct AppState *state)
+void render_active_item(struct app_state *state)
 {
     printf("%s/%s", state->cwd, state->dir_entries[state->user_highlight].name);
 }
@@ -23,7 +23,7 @@ void render_item(WINDOW *menu_win, int y, int x, char *name, bool is_dir, bool i
     wattroff(menu_win, style);
 }
 
-void render(WINDOW *menu_win, struct AppState *state)
+void render(WINDOW *menu_win, struct app_state *state)
 {
     int x, y, i;
 

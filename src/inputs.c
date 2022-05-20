@@ -1,12 +1,7 @@
 #pragma once
 #include "global.h"
 
-void bye(void)
-{
-    printf("That was all, folks\n");
-}
-
-void detect_mouse(struct AppState *state)
+void detect_mouse(struct app_state *state)
 {
     while (1)
     {
