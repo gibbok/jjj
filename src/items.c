@@ -15,9 +15,20 @@ void get_cwd(struct app_state *state)
     }
 }
 
+int compare(const void *d1, const void *d2)
+{
+    return (strcmp(((struct dir_item *)d1)->name,
+                   ((struct dir_item *)d2)->name));
+}
+
+void sort(struct app_state *state)
+{
+    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), compare);
+}
+
 void list_dir(struct app_state *state)
 {
-    state->dir_entries = malloc((2* sizeof(struct app_state)));
+    state->dir_entries = malloc((2 * sizeof(struct app_state)));
 
     struct dirent *dir_entry;
 
@@ -85,13 +96,14 @@ void update_state(struct app_state *state)
 {
     get_cwd(state);
     list_dir(state);
+    sort(state);
 }
 
 void refresh_screen(struct app_state *state, bool can_reset)
 {
-    if(can_reset)
+    if (can_reset)
         reset_state(state);
-        
+
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
