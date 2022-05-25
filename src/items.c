@@ -67,6 +67,8 @@ void list_dir(struct app_state *state)
         }
     }
 
+    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), compare);
+
     closedir(dr);
 }
 
