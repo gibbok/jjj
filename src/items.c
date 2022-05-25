@@ -96,7 +96,7 @@ void update_state(struct app_state *state)
 {
     get_cwd(state);
     list_dir(state);
-    sort(state);
+    // sort(state);
 }
 
 void refresh_screen(struct app_state *state, bool can_reset)

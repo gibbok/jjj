@@ -25,7 +25,7 @@ void detect_mouse(struct app_state *state)
         case KEY_RIGHT:
         case KEY_L:
             change_directory(state);
-            refresh_screen(state, false);
+            refresh_screen(state, true);
             break;
         case KEY_LEFT:
         case KEY_H:
