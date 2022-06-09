@@ -10,6 +10,7 @@ void detect_mouse(struct app_state *state)
         {
         case KEY_UP:
         case KEY_K:
+            refresh_screen(state, false);
             if (state->user_highlight == 0)
                 state->user_highlight = state->dir_entries_total - 1;
             else
@@ -17,6 +18,7 @@ void detect_mouse(struct app_state *state)
             break;
         case KEY_DOWN:
         case KEY_J:
+            refresh_screen(state, false);
             if (state->user_highlight == state->dir_entries_total - 1)
                 state->user_highlight = 0;
             else

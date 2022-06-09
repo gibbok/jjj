@@ -2,6 +2,7 @@
     "files.associations": {
         "curses.h": "c",
         "global.h": "c",
-        "limits.h": "c"
+        "limits.h": "c",
+        "algorithm": "c"
     }
 }

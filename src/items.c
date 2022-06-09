@@ -21,11 +21,6 @@ int compare(const void *d1, const void *d2)
                    ((struct dir_item *)d2)->name));
 }
 
-void sort(struct app_state *state)
-{
-    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), compare);
-}
-
 void list_dir(struct app_state *state)
 {
     state->dir_entries = malloc((2 * sizeof(struct app_state)));
@@ -98,12 +93,12 @@ void update_state(struct app_state *state)
 {
     get_cwd(state);
     list_dir(state);
-    // sort(state);
 }
 
 void refresh_screen(struct app_state *state, bool can_reset)
 {
-    reset_state(state);
+    if (can_reset)
+        reset_state(state);
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
