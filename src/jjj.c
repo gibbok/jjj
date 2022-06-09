@@ -5,6 +5,7 @@
 
 int main()
 {
+
     FILE *tty = fopen("/dev/tty", "r+");
     SCREEN *screen = newterm(NULL, tty, tty);
     curs_set(0);

@@ -19,7 +19,7 @@
 - [x] User can select and open an item with the `return` key
 - [x] User can exit the program returning the path for the selected item using `space` 
 - [x] User can exit the program by pressing `q`
-- [] User can see a list of files updated if the items changed
+- [x] User can see a list of files updated if the items changed when navigatin
 
 ## Resources
 https://iq.opengenus.org/chdir-fchdir-getcwd-in-c/#:~:text=The%20getcwd()%20function%20places,of%20getcwd()%20is%20undefined.

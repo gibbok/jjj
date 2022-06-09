@@ -41,6 +41,9 @@ void detect_mouse(struct app_state *state)
             free(state->dir_entries);
             exit(EXIT_SUCCESS);
             break;
+        case KEY_R:
+            refresh_screen(state, true);
+            break;
         default:
             refresh();
             break;

@@ -3,7 +3,6 @@ PROGRAM = jjj
 CC 		= gcc
 CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
-
 # build program
 all:
 	$(CC) ./src/${PROGRAM}.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)

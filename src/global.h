@@ -7,6 +7,7 @@
 
 #include <curses.h>
 #include <limits.h>
+#include <pthread.h>
 
 #define RENDER_START_X 0
 #define RENDER_START_Y 0
@@ -16,6 +17,7 @@
 #define KEY_L 108
 #define KEY_H 104
 #define KEY_Q 113
+#define KEY_R 114
 #define KEY_ESC 27
 #define KEY_RETURN 10
 #define KEY_SPACEBAR 32
