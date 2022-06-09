@@ -34,7 +34,7 @@ void render(WINDOW *menu_win, struct app_state *state)
     
     // use only when debugging
     // mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight);
-    mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
+    // mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
     // mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd);
     // mvwprintw(menu_win, RENDER_START_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
 
