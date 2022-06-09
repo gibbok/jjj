@@ -7,6 +7,7 @@
 
 #include <curses.h>
 #include <limits.h>
+#include <pthread.h>
 
 #define RENDER_START_X 0
 #define RENDER_START_Y 0

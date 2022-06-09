@@ -2,7 +2,7 @@ SHELL	= /bin/sh
 PROGRAM = jjj
 CC 		= gcc
 CFLAGS	= -g -O0 -Wall -Werror
-LIBS    = -lncurses
+LIBS    = -lncurses -lpthread
 
 # build program
 all:
