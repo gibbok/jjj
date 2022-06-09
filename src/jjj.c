@@ -15,7 +15,6 @@ int main()
     state.user_highlight = 0;
 
     update_state(&state);
-    refresh_screen_periodically();
 
     clear();
     noecho();

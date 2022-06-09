@@ -108,22 +108,3 @@ void refresh_screen(struct app_state *state, bool can_reset)
     render(menu_win, state);
     wclear(menu_win);
 }
-
-int RUNNING = 1;
-
-void *foo(void *vargp) {
-  while(RUNNING) {
-    printf("bar\n");
-    sleep(1);
-  }
-  return NULL;
-}
-
-void refresh_screen_periodically ()
-{
-    pthread_t thread_foo;
-    pthread_create(&thread_foo, NULL, foo, NULL);
-    sleep(4);
-    RUNNING = 0;
-    pthread_join(thread_foo, NULL);
-}
