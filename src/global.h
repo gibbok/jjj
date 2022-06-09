@@ -17,6 +17,7 @@
 #define KEY_L 108
 #define KEY_H 104
 #define KEY_Q 113
+#define KEY_R 114
 #define KEY_ESC 27
 #define KEY_RETURN 10
 #define KEY_SPACEBAR 32
