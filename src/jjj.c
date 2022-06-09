@@ -3,23 +3,8 @@
 #include "render.c"
 #include "inputs.c"
 
-int RUNNING = 1;
-
-void *foo(void *vargp) {
-  while(RUNNING) {
-    printf("bar\n");
-    sleep(1); // one second
-  }
-  return NULL;
-}
-
 int main()
 {
-    pthread_t thread_foo;
-    pthread_create(&thread_foo, NULL, foo, NULL);
-    sleep(4);
-    RUNNING = 0;
-    pthread_join(thread_foo, NULL);
 
     FILE *tty = fopen("/dev/tty", "r+");
     SCREEN *screen = newterm(NULL, tty, tty);
@@ -30,6 +15,7 @@ int main()
     state.user_highlight = 0;
 
     update_state(&state);
+    refresh_screen_periodically();
 
     clear();
     noecho();
