@@ -21,12 +21,12 @@ void validate_inputs(int argc, char *argv[])
 {
     if (argc < 2)
     {
-        printf("jjj: Invalid input, a path is required.");
+        printf("jjj: Invalid input. A valid path is required.");
         exit_with_failure();
     }
     if (argc > 2)
     {
-        printf("jjj: Invalid input, only a single path is required.");
+        printf("jjj: Invalid input. Only a single relative or absolute valid path is required.");
         exit_with_failure();
     }
 }
@@ -95,7 +95,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             break;
         case KEY_Q:
         case KEY_ESC:
-            exit_with_failure();
+            exit_with_success();
         case KEY_R:
             refresh_screen(main_window, state);
             break;

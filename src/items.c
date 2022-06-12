@@ -7,7 +7,7 @@
 
 void get_cwd(struct app_state *state)
 {
-    char cwd[256];
+    char cwd[PATH_MAX];
     if (getcwd(cwd, sizeof(cwd)) == NULL)
     {
         perror("getcwd() error");
@@ -45,9 +45,7 @@ void list_items_in_dir(struct app_state *state)
         {
         case DT_DIR:
             /* Excludes special name-inode from the result of the list. */
-            if (strcmp(dir_entry->d_name, ".") == 0)
-                break;
-            if (strcmp(dir_entry->d_name, "..") == 0)
+            if (strcmp(dir_entry->d_name, ".") == 0 || strcmp(dir_entry->d_name, "..") == 0)
                 break;
             item.is_dir = 1;
             state->dir_entries[i] = item;
