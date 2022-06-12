@@ -33,7 +33,7 @@ void render(WINDOW *menu_win, struct app_state *state)
     y = RENDER_AT_WINDOW_POSITION_Y + 1;
 
     mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y, x, "%s", state->cwd);
-    
+
     /* Uncomment to render part of the application state for debugging purposes. */
     // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 20, x, "user_highlight %d\n", state->user_highlight);
     // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
@@ -42,8 +42,9 @@ void render(WINDOW *menu_win, struct app_state *state)
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
-        if (state->user_highlight == i) /* High light the present choice */
+        if (state->user_highlight == i)
         {
+            /* High light the present choice */
             render_item(menu_win, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, true);
         }
         else
