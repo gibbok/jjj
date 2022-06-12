@@ -2,6 +2,14 @@
 
 #include "global.h"
 
+void move_up_within_items(struct app_state *state)
+{
+    if (state->user_highlight == 0)
+        state->user_highlight = state->dir_entries_total - 1;
+    else
+        --state->user_highlight;
+}
+
 void detect_key_pressed(struct app_state *state)
 {
     while (1)
@@ -11,10 +19,7 @@ void detect_key_pressed(struct app_state *state)
         {
         case KEY_UP:
         case KEY_K:
-            if (state->user_highlight == 0)
-                state->user_highlight = state->dir_entries_total - 1;
-            else
-                --state->user_highlight;
+            move_up_within_items(state);
             break;
         case KEY_DOWN:
         case KEY_J:
