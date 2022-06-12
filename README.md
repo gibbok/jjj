@@ -2,20 +2,20 @@
 
 `jjj` is a minimal and fast command-line file lister with Vim key bindings.
 
-`jjj` can be use to navigated your OS and pipe a selected file to other Linux utilities.
+`jjj` can be use to navigate swiftly your OS and pipe a selected file to other Linux utilities.
 
 Usage examples:
 
 Select a file and pipe it to less:
 
 ```shell
-jjj . | less
+jjj . | xargs cat
 ```
 
 Select a file and open it with macOS finder:
 
 ```shell
-jjj . | xargs open
+jjj /Users | xargs open
 ```
 
 ## Key binding
