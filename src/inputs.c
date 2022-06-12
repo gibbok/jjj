@@ -23,13 +23,13 @@ void select_next_item(struct app_state *state)
 
 void visit_selected_item(struct app_state *state)
 {
-    change_directory(state);
+    change_dir(state);
     refresh_screen(state, true);
 }
 
 void visit_parent_item(struct app_state *state)
 {
-    change_directory_up(state);
+    change_dir_up(state);
     refresh_screen(state, true);
 }
 

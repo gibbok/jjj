@@ -70,7 +70,7 @@ void list_items_in_dir(struct app_state *state)
     closedir(dr);
 }
 
-void change_directory(struct app_state *state)
+void change_dir(struct app_state *state)
 {
     int idx = state->user_highlight;
     chdir(state->dir_entries[idx].name);
@@ -87,7 +87,7 @@ void reset_state(struct app_state *state)
     state->dir_entries_total = 0;
 }
 
-void change_directory_up(struct app_state *state)
+void change_dir_up(struct app_state *state)
 {
     chdir("..");
 }
