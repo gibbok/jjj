@@ -3,13 +3,17 @@
 #include "render.c"
 #include "inputs.c"
 
-int main()
+void use_ncourse_with_stout_stin()
 {
-
     FILE *tty = fopen("/dev/tty", "r+");
     SCREEN *screen = newterm(NULL, tty, tty);
-    curs_set(0);
     set_term(screen);
+}
+
+int main()
+{
+    use_ncourse_with_stout_stin();
+    curs_set(0);
 
     struct app_state state = {};
     state.user_highlight = 0;
