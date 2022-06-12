@@ -2,7 +2,7 @@
 
 #include "global.h"
 
-void move_up_within_items(struct app_state *state)
+void select_prev_item(struct app_state *state)
 {
     if (state->user_highlight == 0)
         state->user_highlight = state->dir_entries_total - 1;
@@ -10,7 +10,7 @@ void move_up_within_items(struct app_state *state)
         --state->user_highlight;
 }
 
-void move_down_within_items(struct app_state *state)
+void select_next_item(struct app_state *state)
 {
     if (state->user_highlight == state->dir_entries_total - 1)
         state->user_highlight = 0;
@@ -18,19 +18,19 @@ void move_down_within_items(struct app_state *state)
         ++state->user_highlight;
 }
 
-void move_to_item(struct app_state *state)
+void visit_selected_item(struct app_state *state)
 {
     change_directory(state);
     refresh_screen(state, true);
 }
 
-void move_to_parent(struct app_state *state)
+void visit_parent_item(struct app_state *state)
 {
     change_directory_up(state);
     refresh_screen(state, true);
 }
 
-void return_path_to_user(struct app_state *state)
+void return_selected_item(struct app_state *state)
 {
     endwin();
     render_active_item(state);
@@ -47,25 +47,25 @@ void detect_key_pressed(struct app_state *state)
         {
         case KEY_UP:
         case KEY_K:
-            move_up_within_items(state);
+            select_prev_item(state);
             break;
         case KEY_DOWN:
         case KEY_J:
-            move_down_within_items(state);
+            select_next_item(state);
             break;
         case KEY_RIGHT:
         case KEY_L:
-            move_to_item(state);
+            visit_selected_item(state);
             break;
         case KEY_LEFT:
         case KEY_H:
-            move_to_parent(state);
+            visit_parent_item(state);
             break;
         case KEY_Q:
         case KEY_ESC:
         case KEY_SPACEBAR:
         case KEY_RETURN:
-            return_path_to_user(state);
+            return_selected_item(state);
             break;
         case KEY_R:
             refresh_screen(state, true);
