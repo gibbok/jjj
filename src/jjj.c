@@ -3,6 +3,10 @@
 #include "render.c"
 #include "inputs.c"
 
+/*
+ Using curses with `initscr()` or `newterm()` makes it impossible to also pipe output into some other Linux utility.
+ Instead, we use `/dev/tty` for both input and output so the result of this program could be easily piped.
+*/
 void use_ncourse_with_stout_stin()
 {
     FILE *tty = fopen("/dev/tty", "r+");
@@ -13,6 +17,7 @@ void use_ncourse_with_stout_stin()
 int main()
 {
     use_ncourse_with_stout_stin();
+
     curs_set(0);
 
     struct app_state state = {};
