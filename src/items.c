@@ -27,12 +27,19 @@ void list_items_in_dir(struct app_state *state)
 {
     state->dir_entries = malloc((2 * sizeof(struct app_state)));
 
+    if (state->dir_entries == NULL)
+    {
+        printf("jjj: Error: Could not allocate memory.");
+    }
+
     struct dirent *dir_entry;
 
     DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
-        printf("Could not open directory %s", state->cwd);
+    {
+        printf("jjj: Error: Could not open directory %s.", state->cwd);
+    }
 
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
@@ -46,7 +53,9 @@ void list_items_in_dir(struct app_state *state)
         case DT_DIR:
             /* Excludes special name-inode from the result of the list. */
             if (strcmp(dir_entry->d_name, ".") == 0 || strcmp(dir_entry->d_name, "..") == 0)
+            {
                 break;
+            }
             item.is_dir = 1;
             state->dir_entries[i] = item;
             ++i;
@@ -92,7 +101,7 @@ void change_dir_up(struct app_state *state)
 
 void set_cwd_to_user_path(struct app_state *state, char *user_path)
 {
-    char * user_full_path = realpath(user_path, NULL);
+    char *user_full_path = realpath(user_path, NULL);
     strcpy(state->cwd, user_full_path);
 }
 
