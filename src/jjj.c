@@ -1,3 +1,5 @@
+/*  Entry point and curses specifics */
+
 #include "global.h"
 #include "items.c"
 #include "render.c"
