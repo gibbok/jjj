@@ -7,7 +7,7 @@
 
 void get_cwd(struct app_state *state)
 {
-    char cwd[256]; // FIXME: find a way to make it platform indipendent
+    char cwd[256];
     if (getcwd(cwd, sizeof(cwd)) == NULL)
     {
         perror("getcwd() error");
@@ -18,10 +18,9 @@ void get_cwd(struct app_state *state)
     }
 }
 
-int compare(const void *d1, const void *d2)
+int sorting_comparator(const void *d1, const void *d2)
 {
-    return (strcmp(((struct dir_item *)d1)->name,
-                   ((struct dir_item *)d2)->name));
+    return (strcmp(((struct dir_item *)d1)->name, ((struct dir_item *)d2)->name));
 }
 
 void list_dir(struct app_state *state)
@@ -65,7 +64,7 @@ void list_dir(struct app_state *state)
         }
     }
 
-    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), compare);
+    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), sorting_comparator);
 
     closedir(dr);
 }
