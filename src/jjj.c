@@ -23,7 +23,7 @@ int main()
     render_window();
     render(menu_win, &state);
 
-    detect_mouse(&state);
+    detect_key_pressed(&state);
 
     clrtoeol();
     endwin();

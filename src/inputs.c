@@ -1,7 +1,8 @@
 #pragma once
+
 #include "global.h"
 
-void detect_mouse(struct app_state *state)
+void detect_key_pressed(struct app_state *state)
 {
     while (1)
     {
