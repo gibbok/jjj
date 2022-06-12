@@ -98,9 +98,15 @@ void update_app_state(struct app_state *state)
     list_items_in_dir(state);
 }
 
-void refresh_screen(WINDOW* main_window, struct app_state *state, bool can_reset)
+int is_active_item_dir(struct app_state *state)
 {
-    if (can_reset)
+    return state->dir_entries[state->user_highlight].is_dir;
+}
+
+void refresh_screen(WINDOW *main_window, struct app_state *state)
+{
+    int can_reset = is_active_item_dir(state);
+    if (can_reset == 1)
     {
         reset_app_state(state);
     }
