@@ -1,6 +1,7 @@
 /*  Render the application state into the terminal. */
 
 #pragma once
+
 #include "global.h"
 
 void render_window()
