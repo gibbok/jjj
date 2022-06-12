@@ -9,12 +9,12 @@ void validate_inputs(int argc, char *argv[])
 {
     if (argc < 2)
     {
-        printf("jjj: Invalid input, a path parameter is required.");
+        printf("jjj: Invalid input, a path is required.");
         exit(EXIT_FAILURE);
     }
     if (argc > 2)
     {
-        printf("jjj: Invalid input, only a single parameter is required.");
+        printf("jjj: Invalid input, only a single path is required.");
         exit(EXIT_FAILURE);
     }
 }
