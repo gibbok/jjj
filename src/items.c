@@ -26,7 +26,6 @@ int sorting_comparator(const void *d1, const void *d2)
 void list_items_in_dir(struct app_state *state)
 {
     state->dir_entries = malloc((2 * sizeof(struct app_state)));
-
     if (state->dir_entries == NULL)
     {
         printf("jjj: Error: Could not allocate memory.");
@@ -49,6 +48,7 @@ void list_items_in_dir(struct app_state *state)
         {
             printf("jjj: Error: Could not resize memory.");
         }
+
         struct dir_item item = {};
         strcpy(item.name, dir_entry->d_name);
 
