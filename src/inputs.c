@@ -45,7 +45,7 @@ void detect_key_pressed(struct app_state *state)
 {
     while (1)
     {
-        state->user_key_pressed = wgetch(menu_win);
+        state->user_key_pressed = wgetch(main_window);
         switch (state->user_key_pressed)
         {
         case KEY_UP:
@@ -77,7 +77,7 @@ void detect_key_pressed(struct app_state *state)
             refresh();
             break;
         }
-        render(menu_win, state);
+        render(main_window, state);
     }
     clrtoeol();
     refresh();

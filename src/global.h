@@ -37,4 +37,4 @@ struct app_state
     int user_key_pressed;
 };
 
-WINDOW *menu_win;
+WINDOW *main_window;

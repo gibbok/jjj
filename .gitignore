@@ -1,6 +1,7 @@
 # IDE
 !.vscode
-bin
+bin/*
+!bin/.gitkeep
 
 # Prerequisites
 *.d

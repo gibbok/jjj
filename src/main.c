@@ -32,7 +32,7 @@ int main()
     cbreak();
 
     render_window();
-    render(menu_win, &state);
+    render(main_window, &state);
 
     detect_key_pressed(&state);
 
