@@ -7,7 +7,7 @@
 
 void get_cwd(struct app_state *state)
 {
-    char cwd[256];
+    char cwd[PATH_MAX];
     if (getcwd(cwd, sizeof(cwd)) == NULL)
     {
         perror("getcwd() error");
