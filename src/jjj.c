@@ -7,7 +7,7 @@
  Using curses with `initscr()` or `newterm()` makes it impossible to also pipe output into some other Linux utility.
  Instead, we use `/dev/tty` for both input and output so the result of this program could be easily piped.
 */
-void use_ncourse_with_stout_stin()
+void pipe_curses_output_to_stdout()
 {
     FILE *tty = fopen("/dev/tty", "r+");
     SCREEN *screen = newterm(NULL, tty, tty);
@@ -16,7 +16,7 @@ void use_ncourse_with_stout_stin()
 
 int main()
 {
-    use_ncourse_with_stout_stin();
+    pipe_curses_output_to_stdout();
 
     curs_set(0);
 
