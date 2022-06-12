@@ -98,7 +98,7 @@ void update_app_state(struct app_state *state)
     list_items_in_dir(state);
 }
 
-void refresh_screen(struct app_state *state, bool can_reset)
+void refresh_screen(WINDOW* main_window, struct app_state *state, bool can_reset)
 {
     if (can_reset)
     {

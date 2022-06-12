@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
     noecho();
     cbreak();
 
-    render_window();
+    WINDOW *main_window = render_window();
     validate_inputs(argc, argv);
     render(main_window, &state);
 
-    detect_key_pressed(&state);
+    detect_key_pressed(main_window, &state);
 
     clrtoeol();
     endwin();
