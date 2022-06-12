@@ -10,6 +10,14 @@ void move_up_within_items(struct app_state *state)
         --state->user_highlight;
 }
 
+void move_down_within_items(struct app_state *state)
+{
+    if (state->user_highlight == state->dir_entries_total - 1)
+        state->user_highlight = 0;
+    else
+        ++state->user_highlight;
+}
+
 void detect_key_pressed(struct app_state *state)
 {
     while (1)
@@ -23,10 +31,7 @@ void detect_key_pressed(struct app_state *state)
             break;
         case KEY_DOWN:
         case KEY_J:
-            if (state->user_highlight == state->dir_entries_total - 1)
-                state->user_highlight = 0;
-            else
-                ++state->user_highlight;
+            move_down_within_items(state);
             break;
         case KEY_RIGHT:
         case KEY_L:
