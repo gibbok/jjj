@@ -24,6 +24,12 @@ void move_to_item(struct app_state *state)
     refresh_screen(state, true);
 }
 
+void move_to_parent(struct app_state *state)
+{
+    change_directory_up(state);
+    refresh_screen(state, true);
+}
+
 void detect_key_pressed(struct app_state *state)
 {
     while (1)
@@ -45,8 +51,7 @@ void detect_key_pressed(struct app_state *state)
             break;
         case KEY_LEFT:
         case KEY_H:
-            change_directory_up(state);
-            refresh_screen(state, true);
+            move_to_parent(state);
             break;
         case KEY_Q:
         case KEY_ESC:
