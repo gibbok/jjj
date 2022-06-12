@@ -44,6 +44,7 @@ void list_dir(struct app_state *state)
         switch (dir_entry->d_type)
         {
         case DT_DIR:
+            /* Excludes special name-inode from the result of the list. */
             if (strcmp(dir_entry->d_name, ".") == 0)
                 break;
             if (strcmp(dir_entry->d_name, "..") == 0)
