@@ -18,6 +18,12 @@ void move_down_within_items(struct app_state *state)
         ++state->user_highlight;
 }
 
+void move_to_item(struct app_state *state)
+{
+    change_directory(state);
+    refresh_screen(state, true);
+}
+
 void detect_key_pressed(struct app_state *state)
 {
     while (1)
@@ -35,8 +41,7 @@ void detect_key_pressed(struct app_state *state)
             break;
         case KEY_RIGHT:
         case KEY_L:
-            change_directory(state);
-            refresh_screen(state, true);
+            move_to_item(state);
             break;
         case KEY_LEFT:
         case KEY_H:
