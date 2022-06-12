@@ -1,16 +1,16 @@
 #pragma once
+
 #include <dirent.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <limits.h>
 
 #include <curses.h>
-#include <limits.h>
-#include <pthread.h>
 
-#define RENDER_START_X 0
-#define RENDER_START_Y 0
+#define RENDER_AT_WINDOW_POSITION_X 0
+#define RENDER_AT_WINDOW_POSITION_Y 0
 
 #define KEY_J 106
 #define KEY_K 107

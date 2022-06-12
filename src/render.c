@@ -1,9 +1,12 @@
+/*  Render the application state into the terminal. */
+
 #pragma once
+
 #include "global.h"
 
 void render_window()
 {
-    menu_win = newwin(0, 0, RENDER_START_Y, RENDER_START_X);
+    menu_win = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
     keypad(menu_win, TRUE);
     refresh();
 }
@@ -27,21 +30,22 @@ void render(WINDOW *menu_win, struct app_state *state)
 {
     int x, y, i;
 
-    x = RENDER_START_X;
-    y = RENDER_START_Y + 1;
+    x = RENDER_AT_WINDOW_POSITION_X;
+    y = RENDER_AT_WINDOW_POSITION_Y + 1;
 
-    mvwprintw(menu_win, RENDER_START_Y, x, "%s", state->cwd);
-    
-    // use only when debugging
-    // mvwprintw(menu_win, RENDER_START_Y + 20, x, "user_highlight %d\n", state->user_highlight);
-    // mvwprintw(menu_win, RENDER_START_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
-    // mvwprintw(menu_win, RENDER_START_Y + 23, x, "cwd %s\n", state->cwd);
-    // mvwprintw(menu_win, RENDER_START_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
+    mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y, x, "%s", state->cwd);
+
+    /* Uncomment to render part of the application state for debugging purposes. */
+    // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 20, x, "user_highlight %d\n", state->user_highlight);
+    // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
+    // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 23, x, "cwd %s\n", state->cwd);
+    // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
 
     for (i = 0; i <= state->dir_entries_total; ++i)
     {
-        if (state->user_highlight == i) /* High light the present choice */
+        if (state->user_highlight == i)
         {
+            /* High light the present choice */
             render_item(menu_win, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, true);
         }
         else
