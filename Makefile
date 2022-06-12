@@ -21,4 +21,4 @@ kill:
 
 # start program from a clean slate 
 dev:
-	make clean && make all && make run
+	stty sane && tput rs1 && make clean && make all && make run
