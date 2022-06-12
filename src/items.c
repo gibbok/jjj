@@ -23,7 +23,7 @@ int sorting_comparator(const void *d1, const void *d2)
     return (strcmp(((struct dir_item *)d1)->name, ((struct dir_item *)d2)->name));
 }
 
-void list_dir(struct app_state *state)
+void list_items_in_dir(struct app_state *state)
 {
     state->dir_entries = malloc((2 * sizeof(struct app_state)));
 
@@ -95,7 +95,7 @@ void change_directory_up(struct app_state *state)
 void update_state(struct app_state *state)
 {
     get_cwd(state);
-    list_dir(state);
+    list_items_in_dir(state);
 }
 
 void refresh_screen(struct app_state *state, bool can_reset)
