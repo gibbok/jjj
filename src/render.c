@@ -34,7 +34,7 @@ void render(WINDOW *menu_win, struct app_state *state)
 
     mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y, x, "%s", state->cwd);
     
-    // use only when debugging
+    /* Uncomment to render part of the application state for debugging purposes. */
     // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 20, x, "user_highlight %d\n", state->user_highlight);
     // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
     // mvwprintw(menu_win, RENDER_AT_WINDOW_POSITION_Y + 23, x, "cwd %s\n", state->cwd);
