@@ -45,6 +45,10 @@ void list_items_in_dir(struct app_state *state)
     while ((dir_entry = readdir(dr)) != NULL)
     {
         state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * 2 + i);
+        if (state->dir_entries == NULL)
+        {
+            printf("jjj: Error: Could not resize memory.");
+        }
         struct dir_item item = {};
         strcpy(item.name, dir_entry->d_name);
 
