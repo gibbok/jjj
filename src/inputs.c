@@ -38,13 +38,13 @@ void select_next_item(struct app_state *state)
 void visit_selected_item(WINDOW *main_window, struct app_state *state)
 {
     change_dir(state);
-    refresh_screen(main_window, state, true);
+    refresh_screen(main_window, state);
 }
 
 void visit_parent_item(WINDOW *main_window, struct app_state *state)
 {
     change_dir_up(state);
-    refresh_screen(main_window, state, true);
+    refresh_screen(main_window, state);
 }
 
 void return_selected_item(struct app_state *state)
@@ -78,14 +78,15 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_H:
             visit_parent_item(main_window, state);
             break;
-        case KEY_Q:
-        case KEY_ESC:
         case KEY_SPACEBAR:
         case KEY_RETURN:
             return_selected_item(state);
             break;
+        case KEY_Q:
+        case KEY_ESC:
+            exit(EXIT_SUCCESS);
         case KEY_R:
-            refresh_screen(main_window, state, true);
+            refresh_screen(main_window, state);
             break;
         default:
             refresh();
