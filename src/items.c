@@ -1,4 +1,7 @@
+/*  File system operations related to retrieving files and directories information. */
+
 #pragma once
+
 #include "global.h"
 #include "render.c"
 
