@@ -2,7 +2,7 @@
 
 `jjj` is a minimal and fast command-line file lister with Vim key bindings.
 
-`jjj` can be use to navigated your OS and pipe a selected file to other Linux Utilities.
+`jjj` can be use to navigated your OS and pipe a selected file to other Linux utilities.
 
 Usage examples:
 
@@ -14,14 +14,19 @@ Usage examples:
 
 ## Key binding
 
-```
-j => move down one line
-k => move up one line
-l => if selected line is a directory visit it otherwise do nothing
-h => move up one folder 
-```
+| Key   | Description                                 |
+| ----- | ------------------------------------------- |
+| j     | Move cursor down                            |
+| k     | Move cursor up                              |
+| h     | Visit parent folder                         |
+| l     | If directory, visit it, otherwis do nothing |
+| q     | Exit returning path                         |
+| enter | Exit returning path                         |
+| r     | Update view of the current folder           |
 
-## Development
+*Notes: you can also navigate using the arrow keys.*
+
+## For development
 
 Clone the repository and install dependencies:
 ```shell
