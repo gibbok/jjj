@@ -30,6 +30,14 @@ void move_to_parent(struct app_state *state)
     refresh_screen(state, true);
 }
 
+void return_path_to_user(struct app_state *state)
+{
+    endwin();
+    render_active_item(state);
+    free(state->dir_entries);
+    exit(EXIT_SUCCESS);
+}
+
 void detect_key_pressed(struct app_state *state)
 {
     while (1)
@@ -57,10 +65,7 @@ void detect_key_pressed(struct app_state *state)
         case KEY_ESC:
         case KEY_SPACEBAR:
         case KEY_RETURN:
-            endwin();
-            render_active_item(state);
-            free(state->dir_entries);
-            exit(EXIT_SUCCESS);
+            return_path_to_user(state);
             break;
         case KEY_R:
             refresh_screen(state, true);
