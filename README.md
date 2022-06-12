@@ -6,10 +6,16 @@
 
 Usage examples:
 
-```shell
-`jjj . | less`
+Select a file and pipe it to less:
 
-`jjj . | xargs open`
+```shell
+jjj . | less
+```
+
+Select a file and open it with macOS finder:
+
+```shell
+jjj . | xargs open
 ```
 
 ## Key binding
