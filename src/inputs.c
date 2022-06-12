@@ -5,17 +5,29 @@
 
 #include "global.h"
 
+void exit_with_success()
+{
+    endwin();
+    exit(EXIT_SUCCESS);
+}
+
+void exit_with_failure()
+{
+    endwin();
+    exit(EXIT_FAILURE);
+}
+
 void validate_inputs(int argc, char *argv[])
 {
     if (argc < 2)
     {
         printf("jjj: Invalid input, a path is required.");
-        exit(EXIT_FAILURE);
+        exit_with_failure();
     }
     if (argc > 2)
     {
         printf("jjj: Invalid input, only a single path is required.");
-        exit(EXIT_FAILURE);
+        exit_with_failure();
     }
 }
 
@@ -49,10 +61,9 @@ void visit_parent_item(WINDOW *main_window, struct app_state *state)
 
 void return_selected_item(struct app_state *state)
 {
-    endwin();
     render_active_item(state);
     free(state->dir_entries);
-    exit(EXIT_SUCCESS);
+    exit_with_success();
 }
 
 void detect_key_pressed(WINDOW *main_window, struct app_state *state)
@@ -84,7 +95,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             break;
         case KEY_Q:
         case KEY_ESC:
-            exit(EXIT_SUCCESS);
+            exit_with_failure();
         case KEY_R:
             refresh_screen(main_window, state);
             break;
