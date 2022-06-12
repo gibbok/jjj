@@ -1,4 +1,3 @@
-
 /*  Detect user interactions with the program.  */
 
 #pragma once
