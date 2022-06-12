@@ -5,6 +5,20 @@
 
 #include "global.h"
 
+void validate_inputs(int argc, char *argv[])
+{
+    if (argc < 2)
+    {
+        printf("jjj: Invalid input, a path parameter is required.");
+        exit(EXIT_FAILURE);
+    }
+    if (argc > 2)
+    {
+        printf("jjj: Invalid input, only a single parameter is required.");
+        exit(EXIT_FAILURE);
+    }
+}
+
 void select_prev_item(struct app_state *state)
 {
     if (state->user_highlight == 0)

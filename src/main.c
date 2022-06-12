@@ -16,7 +16,7 @@ void pipe_curses_output_to_stdout()
     set_term(screen);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     pipe_curses_output_to_stdout();
 
@@ -32,6 +32,7 @@ int main()
     cbreak();
 
     render_window();
+    validate_inputs(argc, argv);
     render(main_window, &state);
 
     detect_key_pressed(&state);
