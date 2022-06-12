@@ -25,14 +25,13 @@ int main(int argc, char *argv[])
     struct app_state state = {};
     state.user_highlight = 0;
 
-    update_app_state(&state);
-
     clear();
     noecho();
     cbreak();
 
     WINDOW *main_window = render_window();
     validate_inputs(argc, argv);
+    initializa_state(&state, argv[1]);
     render(main_window, &state);
 
     detect_key_pressed(main_window, &state);
