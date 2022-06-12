@@ -17,10 +17,10 @@ void render_active_item(struct app_state *state)
     printf("%s/%s", state->cwd, state->dir_entries[state->user_highlight].name);
 }
 
-void render_item(WINDOW *main_window, int y, int x, char *name, bool is_dir, bool is_active)
+void render_item(WINDOW *main_window, int y, int x, char *name, int is_dir, int is_active)
 {
-    int style = is_active == true ? A_REVERSE : A_NORMAL;
-    char *dir_indicator = is_dir == true ? "/" : "";
+    int style = is_active == 1 ? A_REVERSE : A_NORMAL;
+    char *dir_indicator = is_dir == 1 ? "/" : "";
 
     wattron(main_window, style);
     mvwprintw(main_window, y, x, "%s%s", name, dir_indicator);
@@ -49,11 +49,11 @@ void render(WINDOW *main_window, struct app_state *state)
         if (state->user_highlight == i)
         {
             /* High light the present choice */
-            render_item(main_window, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, true);
+            render_item(main_window, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, 1);
         }
         else
         {
-            render_item(main_window, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, false);
+            render_item(main_window, y, x, state->dir_entries[i].name, state->dir_entries[i].is_dir, 0);
         }
         ++y;
     }
