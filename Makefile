@@ -9,7 +9,7 @@ all:
 
 # remove previously built program
 clean:
-	rm -rf ${PROGRAM}.out *.dSYM
+	rm -rf ${PROGRAM}.out *.dSYM && stty sane && tput rs1
 
 # run program
 run:
@@ -21,4 +21,4 @@ kill:
 
 # start program from a clean slate 
 dev:
-	stty sane && tput rs1 && make clean && make all && make run
+	make clean && make all && make run

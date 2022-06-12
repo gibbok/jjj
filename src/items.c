@@ -92,6 +92,18 @@ void change_dir_up(struct app_state *state)
     chdir("..");
 }
 
+void set_cwd_to_user_path(struct app_state *state, char *user_path)
+{
+    char * user_full_path = realpath(user_path, NULL);
+    strcpy(state->cwd, user_full_path);
+}
+
+void initializa_state(struct app_state *state, char *user_path)
+{
+    set_cwd_to_user_path(state, user_path);
+    list_items_in_dir(state);
+}
+
 void update_app_state(struct app_state *state)
 {
     get_cwd(state);
