@@ -78,12 +78,13 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_H:
             visit_parent_item(main_window, state);
             break;
-        case KEY_Q:
-        case KEY_ESC:
         case KEY_SPACEBAR:
         case KEY_RETURN:
             return_selected_item(state);
             break;
+        case KEY_Q:
+        case KEY_ESC:
+            exit(EXIT_SUCCESS);
         case KEY_R:
             refresh_screen(main_window, state);
             break;

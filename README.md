@@ -20,15 +20,17 @@ jjj . | xargs open
 
 ## Key binding
 
-| Key   | Description                                 |
-| ----- | ------------------------------------------- |
-| j     | Move cursor down                            |
-| k     | Move cursor up                              |
-| h     | Visit parent folder                         |
-| l     | If directory, visit it, otherwis do nothing |
-| q     | Exit returning path                         |
-| enter | Exit returning path                         |
-| r     | Update view of the current folder           |
+| Key      | Description                                 |
+| -------- | ------------------------------------------- |
+| j        | Move cursor down                            |
+| k        | Move cursor up                              |
+| h        | Visit parent folder                         |
+| l        | If directory, visit it, otherwis do nothing |
+| q        | Exit program                                |
+| esc      | Exit program                                |
+| enter    | Exit returning path                         |
+| spacebar | Exit returning path                         |
+| r        | Update view of the current folder           |
 
 *Notes: you can also navigate using the arrow keys.*
 
