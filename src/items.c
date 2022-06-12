@@ -76,7 +76,7 @@ void change_dir(struct app_state *state)
     chdir(state->dir_entries[idx].name);
 }
 
-void reset_state(struct app_state *state)
+void reset_app_state(struct app_state *state)
 {
     for (int i = 0; i <= state->dir_entries_total; ++i)
     {
@@ -101,7 +101,7 @@ void update_state(struct app_state *state)
 void refresh_screen(struct app_state *state, bool can_reset)
 {
     if (can_reset)
-        reset_state(state);
+        reset_app_state(state);
     update_state(state);
     render(menu_win, state);
     wclear(menu_win);
