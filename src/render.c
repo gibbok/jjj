@@ -4,11 +4,12 @@
 
 #include "global.h"
 
-void render_window()
+WINDOW *render_window()
 {
-    main_window = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
+    WINDOW *main_window = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
     keypad(main_window, TRUE);
     refresh();
+    return main_window;
 }
 
 void render_active_item(struct app_state *state)

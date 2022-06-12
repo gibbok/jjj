@@ -36,5 +36,3 @@ struct app_state
     int user_highlight;
     int user_key_pressed;
 };
-
-WINDOW *main_window;
