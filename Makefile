@@ -13,7 +13,7 @@ clean:
 
 # run program
 run:
-	./bin/${PROGRAM}.out
+	./bin/${PROGRAM}.out .
 
 # kill program process
 kill:
