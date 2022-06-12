@@ -5,7 +5,7 @@ CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 # build program
 all:
-	$(CC) ./src/${PROGRAM}.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
+	$(CC) ./src/main.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
 
 # remove previously built program
 clean:

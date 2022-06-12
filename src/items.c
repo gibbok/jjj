@@ -105,6 +105,6 @@ void refresh_screen(struct app_state *state, bool can_reset)
         reset_app_state(state);
     }
     update_app_state(state);
-    render(menu_win, state);
-    wclear(menu_win);
+    render(main_window, state);
+    wclear(main_window);
 }
