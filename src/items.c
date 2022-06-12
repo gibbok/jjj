@@ -60,13 +60,13 @@ void list_items_in_dir(struct app_state *state)
             {
                 break;
             }
-            item.is_dir = 1;
+            item.is_dir = true;
             state->dir_entries[i] = item;
             ++i;
             state->dir_entries_total = i;
             break;
         case DT_REG:
-            item.is_dir = 0;
+            item.is_dir = false;
             state->dir_entries[i] = item;
             ++i;
             state->dir_entries_total = i;
@@ -91,7 +91,7 @@ void reset_app_state(struct app_state *state)
 {
     for (int i = 0; i <= state->dir_entries_total; ++i)
     {
-        state->dir_entries[i].is_dir = 0;
+        state->dir_entries[i].is_dir = false;
         strcpy(state->dir_entries[i].name, "");
     }
     state->user_highlight = 0;
@@ -121,15 +121,15 @@ void update_app_state(struct app_state *state)
     list_items_in_dir(state);
 }
 
-int is_active_item_dir(struct app_state *state)
+bool is_active_item_dir(struct app_state *state)
 {
     return state->dir_entries[state->user_highlight].is_dir;
 }
 
 void refresh_screen(WINDOW *main_window, struct app_state *state)
 {
-    int can_reset = is_active_item_dir(state);
-    if (can_reset == 1)
+    bool can_reset = is_active_item_dir(state);
+    if (can_reset == true)
     {
         reset_app_state(state);
     }

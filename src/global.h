@@ -27,7 +27,7 @@
 struct dir_item
 {
     char name[NAME_MAX];
-    int is_dir;
+    bool is_dir;
 };
 
 struct app_state
