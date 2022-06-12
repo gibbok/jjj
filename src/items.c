@@ -32,7 +32,7 @@ void list_dir(struct app_state *state)
     DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
-        printf("Could not open current directory");
+        printf("Could not open directory %s", state->cwd);
 
     int i = 0;
     while ((dir_entry = readdir(dr)) != NULL)
