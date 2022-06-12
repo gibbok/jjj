@@ -10,6 +10,7 @@
 #include <curses.h>
 
 #define DEBUG_MODE 0
+#define APP_VERSION "1.0.0"
 #define RENDER_AT_WINDOW_POSITION_X 0
 #define RENDER_AT_WINDOW_POSITION_Y 0
 

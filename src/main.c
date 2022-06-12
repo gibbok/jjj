@@ -16,6 +16,15 @@ void pipe_curses_output_to_stdout()
     set_term(screen);
 }
 
+void detect_version_argument(char *user_input)
+{
+    if (strcmp(user_input, "-v") == 0)
+    {
+        render_version();
+        exit_with_success();
+    }
+}
+
 int main(int argc, char *argv[])
 {
     pipe_curses_output_to_stdout();
@@ -30,7 +39,11 @@ int main(int argc, char *argv[])
     cbreak();
 
     WINDOW *main_window = render_window();
+
     validate_inputs(argc, argv);
+
+    detect_version_argument(argv[1]);
+
     initializa_state(&state, argv[1]);
     render(main_window, &state);
 

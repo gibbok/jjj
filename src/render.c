@@ -59,3 +59,8 @@ void render(WINDOW *main_window, struct app_state *state)
     }
     wrefresh(main_window);
 }
+
+void render_version()
+{
+    printf("Version: %s", APP_VERSION);
+}
