@@ -95,7 +95,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             break;
         case KEY_Q:
         case KEY_ESC:
-            exit_with_failure();
+            exit_with_success();
         case KEY_R:
             refresh_screen(main_window, state);
             break;
