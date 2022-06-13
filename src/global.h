@@ -7,7 +7,7 @@
 #include <string.h>
 #include <limits.h>
 
-#include <curses.h>
+#include <ncurses.h>
 
 #define DEBUG_MODE 0
 #define APP_VERSION "1.0.0"
