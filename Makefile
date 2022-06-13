@@ -9,7 +9,7 @@ all:
 
 # remove previously built program
 clean:
-	rm -rf ${PROGRAM}.out *.dSYM && stty sane && tput rs1
+	rm -rf ${PROGRAM}.out *.dSYM && stty sane
 
 # run program
 run:
