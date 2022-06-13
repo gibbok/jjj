@@ -32,7 +32,7 @@ struct dir_item
 
 struct app_state
 {
-    char cwd[PATH_MAX];
+    char cwd[FILENAME_MAX];
     struct dir_item *dir_entries;
     int dir_entries_total;
     int user_highlight;
