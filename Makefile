@@ -25,4 +25,3 @@ dev:
 
 build-linux:
 	docker build -t jjj-app .
-	docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 gcc -o myapp myapp.c	

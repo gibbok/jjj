@@ -4,4 +4,4 @@ RUN apk add build-base
 RUN apk add ncurses-dev
 COPY . /usr/jjj-app
 WORKDIR /usr/jjj-app
-RUN gcc /usr/jjj-app/src/main.c -o /usr/jjj-app/bin/jjj.out -g -O0 -std=c99 -I/usr/include/ncursesw -Ilinux/limits.h
+RUN gcc /usr/jjj-app/src/main.c -o /usr/jjj-app/bin/jjj-linux.out -g -r -O0 -std=c99 -I/usr/include/ncursesw -Ilinux/limits.h
