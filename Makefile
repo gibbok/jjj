@@ -1,6 +1,7 @@
 SHELL	= /bin/sh
 PROGRAM = jjj
 CC 		= gcc
+CC2		= "musl-gcc -static" ./configure --prefix=$HOME/musl && make
 CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 # build program
@@ -25,3 +26,7 @@ dev:
 
 build-linux:
 	docker build -t jjj-app .
+	docker run --publish 8081:8080 jjj-app
+
+build-linux-cross:
+	$(CC2) ./src/main.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
