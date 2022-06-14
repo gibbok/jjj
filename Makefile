@@ -30,4 +30,4 @@ dev:
 
 build-linux:
 	docker build -t jjj .
-	docker run jjj
+	docker run -dit --name jj jjj:latest
