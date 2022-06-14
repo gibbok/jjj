@@ -27,6 +27,3 @@ dev:
 build-linux:
 	docker build -t jjj-app .
 	docker run --publish 8081:8080 jjj-app
-
-build-linux-cross:
-	$(CC2) ./src/main.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
