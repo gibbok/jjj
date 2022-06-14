@@ -6,15 +6,17 @@ CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 # build program
 all:
-	$(CC) ./src/main.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
+	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(CFLAGS) $(LIBS)
 
 # remove previously built program
 clean:
-	rm -rf ${PROGRAM}.out *.dSYM && stty sane
+	rm ./bin/macos-x86-64/${PROGRAM}
+	rm -rf ./bin/macos-x86-64/${PROGRAM}.dSYM
+	stty sane
 
 # run program
 run:
-	./bin/${PROGRAM}.out .
+	./bin/macos-x86-64/${PROGRAM} /Users
 
 # kill program process
 kill:
