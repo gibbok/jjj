@@ -4,17 +4,21 @@ CC 		= gcc
 CC2		= "musl-gcc -static" ./configure --prefix=$HOME/musl && make
 CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
+BIN_MACOS = macos-x86-64
+
 # build program
 all:
-	$(CC) ./src/main.c -o ./bin/${PROGRAM}.out $(CFLAGS) $(LIBS)
+	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(CFLAGS) $(LIBS)
 
 # remove previously built program
 clean:
-	rm -rf ${PROGRAM}.out *.dSYM && stty sane
+	rm ./bin/${BIN_MACOS}/${PROGRAM}
+	rm -rf ./bin/${BIN_MACOS}/${PROGRAM}.dSYM
+	stty sane
 
 # run program
 run:
-	./bin/${PROGRAM}.out .
+	./bin/${BIN_MACOS}/${PROGRAM} /Users
 
 # kill program process
 kill:
@@ -25,5 +29,5 @@ dev:
 	make clean && make all && make run
 
 build-linux:
-	docker build -t jjj-app .
-	docker run --publish 8081:8080 jjj-app
+	docker build -t jjj .
+	docker run -dit --name jjj jjj:latest
