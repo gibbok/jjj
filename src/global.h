@@ -1,5 +1,7 @@
 #pragma once
 
+#define _GNU_SOURCE
+
 #include <dirent.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -7,7 +9,7 @@
 #include <string.h>
 #include <limits.h>
 
-#include <curses.h>
+#include <ncurses.h>
 
 #define DEBUG_MODE 0
 #define APP_VERSION "1.0.0"
@@ -32,7 +34,7 @@ struct dir_item
 
 struct app_state
 {
-    char cwd[PATH_MAX];
+    char cwd[FILENAME_MAX];
     struct dir_item *dir_entries;
     int dir_entries_total;
     int user_highlight;
