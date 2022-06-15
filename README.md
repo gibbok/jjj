@@ -18,6 +18,8 @@ Select a file and open it with macOS finder:
 jjj /Users | xargs open
 ```
 
+Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries.
+
 ## Key binding
 
 | Key      | Description                                 |
@@ -33,6 +35,8 @@ jjj /Users | xargs open
 | r        | Update view of the current folder           |
 
 *Notes: you can also navigate using the arrow keys.*
+
+## Video demo
 
 https://user-images.githubusercontent.com/17195702/173907303-8e6af4d3-898c-40d4-845f-a6585a38a816.mov
 
