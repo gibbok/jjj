@@ -5,6 +5,7 @@ CC2		= "musl-gcc -static" ./configure --prefix=$HOME/musl && make
 CFLAGS	= -g -O0 -Wall -Werror
 LIBS    = -lncurses
 BIN_MACOS = macos-x86-64
+BIN_LINUX = linux-x86-64
 
 # build program
 all:
@@ -12,8 +13,9 @@ all:
 
 # remove previously built program
 clean:
-	rm ./bin/${BIN_MACOS}/${PROGRAM}
+	rm -f ./bin/${BIN_MACOS}/${PROGRAM}
 	rm -rf ./bin/${BIN_MACOS}/${PROGRAM}.dSYM
+	rm -f ./bin/${BIN_LINUX}/${PROGRAM}
 	stty sane
 
 # run program
@@ -31,3 +33,4 @@ dev:
 build-linux:
 	docker build -t jjj .
 	docker run -dit --name jjj jjj:latest
+	docker cp jjj:/usr/jjj/bin/${BIN_LINUX}/jjj ./bin/${BIN_LINUX}
