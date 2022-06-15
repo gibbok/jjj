@@ -34,6 +34,8 @@ jjj /Users | xargs open
 
 *Notes: you can also navigate using the arrow keys.*
 
+https://user-images.githubusercontent.com/17195702/173907303-8e6af4d3-898c-40d4-845f-a6585a38a816.mov
+
 ## For development
 
 Clone the repository and install dependencies:
