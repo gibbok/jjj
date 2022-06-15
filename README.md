@@ -20,8 +20,9 @@ jjj /Users | xargs open
 
 ## Downloads
 
-Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries.
-Change the permission of the downloaded file using `chmod +x ./jjj`.
+- Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries.
+- Change the permission of the downloaded file using `chmod +x ./jjj`.
+
 Notes: on macOS please follow this instruction [https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac](Open a Mac app from an unidentified developer).
 
 ## Key binding
