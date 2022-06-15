@@ -8,7 +8,7 @@ BIN_MACOS = macos-x86-64
 BIN_LINUX = linux-x86-64
 
 # build program
-all:
+build-mac:
 	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(CFLAGS) $(LIBS)
 
 # remove previously built program
@@ -28,8 +28,9 @@ kill:
 
 # start program from a clean slate 
 dev:
-	make clean && make all && make run
+	make clean && make mac && make run
 
+# build program for linux
 build-linux:
 	docker build -t jjj .
 	docker run -dit --name jjj jjj:latest
