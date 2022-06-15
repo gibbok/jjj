@@ -7,11 +7,9 @@ LIBS    = -lncurses
 BIN_MACOS = macos-x86-64
 BIN_LINUX = linux-x86-64
 
-# build program
-build-mac:
+build-mac-dev:
 	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(CFLAGS) $(LIBS)
 
-# remove previously built program
 clean:
 	rm -f ./bin/${BIN_MACOS}/${PROGRAM}
 	rm -rf ./bin/${BIN_MACOS}/${PROGRAM}.dSYM
@@ -28,7 +26,7 @@ kill:
 
 # start program from a clean slate 
 dev:
-	make clean && make mac && make run
+	make clean && make build-mac-dev && make run
 
 # build program for linux
 build-linux:
