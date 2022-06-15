@@ -2,7 +2,7 @@
 
 `jjj` is a minimal and fast command-line file lister with Vim key bindings.
 
-`jjj` can be use to navigate swiftly your OS and pipe a selected file to other Linux utilities.
+`jjj` can be used to navigate swiftly your OS and pipe a selected file to other Linux utilities.
 
 Usage examples:
 
@@ -23,7 +23,7 @@ jjj /Users | xargs open
 - Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries
 - Change the permission of the downloaded file using `chmod +x ./jjj`
 
-*Notes: on macOS please follow this instruction [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).*
+*Notes: on macOS please follow this instructions [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).*
 
 ## Key binding
 
@@ -48,6 +48,7 @@ https://user-images.githubusercontent.com/17195702/173907303-8e6af4d3-898c-40d4-
 ## For development
 
 Clone the repository and install dependencies:
+
 ```shell
 git clone https://github.com/gibbok/jjj.git
 brew install ncurses
