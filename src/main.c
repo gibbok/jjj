@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     cbreak();
 
     WINDOW *main_window = render_window();
-
+    scrollok(main_window, true);
     validate_inputs(argc, argv);
 
     detect_version_argument(argv[1]);

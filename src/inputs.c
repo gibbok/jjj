@@ -79,6 +79,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_DOWN:
         case KEY_J:
             select_next_item(state);
+            // wscrl(main_window, 1); move up
             break;
         case KEY_RIGHT:
         case KEY_L:
