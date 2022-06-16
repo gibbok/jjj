@@ -45,6 +45,7 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     else
         ++state->user_highlight;
 
+    // SPO continue here
     if (state->user_highlight >= state->window_row)
     {
         wscrl(main_window, 1);
