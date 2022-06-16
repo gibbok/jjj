@@ -25,6 +25,11 @@ void detect_version_argument(char *user_input)
     }
 }
 
+void get_size_window(WINDOW *main_window, struct app_state *state)
+{
+    getmaxyx(stdscr, state->window_col, state->window_col);
+}
+
 int main(int argc, char *argv[])
 {
     pipe_curses_output_to_stdout();
@@ -39,7 +44,10 @@ int main(int argc, char *argv[])
     cbreak();
 
     WINDOW *main_window = render_window();
+
     scrollok(main_window, true);
+    get_size_window(main_window, &state);
+
     validate_inputs(argc, argv);
 
     detect_version_argument(argv[1]);
