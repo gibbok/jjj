@@ -45,11 +45,11 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     else
         ++state->user_highlight;
 
-    // SPO continue here
-    if (state->user_highlight >= state->window_row)
-    {
-        wscrl(main_window, 1);
-    }
+    // // SPO continue here
+    // if (state->user_highlight >= state->window_row)
+    // {
+    //     wscrl(main_window, 1);
+    // }
 }
 
 void visit_selected_item(WINDOW *main_window, struct app_state *state)
@@ -85,7 +85,6 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_DOWN:
         case KEY_J:
             select_next_item(main_window, state);
-            // wscrl(main_window, 1); move up
             break;
         case KEY_RIGHT:
         case KEY_L:
@@ -106,6 +105,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             refresh_screen(main_window, state);
             break;
         }
+        // clearok(main_window, true);
         render(main_window, state);
     }
 }
