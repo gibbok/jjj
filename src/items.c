@@ -67,7 +67,8 @@ void list_items_in_dir(struct app_state *state)
         {
         case DT_DIR:
             /* Excludes special name-inode from the result of the list. */
-            if (strcmp(dir_entry->d_name, ".") == 0 || strcmp(dir_entry->d_name, "..") == 0)
+            if (strcmp(dir_entry->d_name, ".") == 0 ||
+                strcmp(dir_entry->d_name, "..") == 0)
             {
                 break;
             }
