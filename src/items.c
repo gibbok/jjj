@@ -25,14 +25,18 @@ int sorting_comparator(const void *d1, const void *d2)
 
 void list_items_in_dir(struct app_state *state)
 {
-    state->dir_entries = malloc((2 * sizeof(struct app_state)));
+    int allocation_count = 1;
+    int size = 500;
+
+    state->dir_entries = malloc((sizeof(struct app_state) * size));
+
     if (state->dir_entries == NULL)
     {
         printf("jjj: Error: Could not allocate memory.");
     }
 
     struct dirent *dir_entry;
-
+    // SIZE_DIR_ITEMS
     DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
@@ -41,9 +45,16 @@ void list_items_in_dir(struct app_state *state)
     }
 
     int i = 0;
+
     while ((dir_entry = readdir(dr)) != NULL)
     {
-        state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * 2 + i);
+        if (i == size)
+        {
+            ++allocation_count;
+            size = size * allocation_count;
+            state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * size);
+        }
+
         if (state->dir_entries == NULL)
         {
             printf("jjj: Error: Could not resize memory.");
