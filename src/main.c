@@ -27,7 +27,7 @@ void detect_version_argument(char *user_input)
 
 void get_size_window(WINDOW *main_window, struct app_state *state)
 {
-    getmaxyx(stdscr, state->window_col, state->window_col);
+    getmaxyx(stdscr, state->window_row, state->window_col);
 }
 
 int main(int argc, char *argv[])
