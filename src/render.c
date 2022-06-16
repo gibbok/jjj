@@ -8,7 +8,6 @@ WINDOW *render_window()
 {
     WINDOW *main_window = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
     keypad(main_window, TRUE);
-    wrefresh(main_window);
     return main_window;
 }
 
@@ -59,7 +58,7 @@ void render(WINDOW *main_window, struct app_state *state)
         }
         ++y;
     }
-    wrefresh(main_window);
+    // wrefresh(main_window);
 }
 
 void render_version()

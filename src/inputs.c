@@ -54,7 +54,6 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     {
         wscrl(main_window, 1);
         wrefresh(main_window);
-        // refresh_screen(main_window, state);
     }
 }
 
