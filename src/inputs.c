@@ -53,7 +53,6 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     if (state->user_highlight >= state->window_row)
     {
         wscrl(main_window, 1);
-        wrefresh(main_window);
     }
 }
 
@@ -110,12 +109,8 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_R:
             refresh_screen(main_window, state);
             break;
-        default:
-            wrefresh(main_window);
-            break;
         }
         render(main_window, state);
     }
-    // clrtoeol();
     wrefresh(main_window);
 }

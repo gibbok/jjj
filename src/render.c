@@ -58,7 +58,6 @@ void render(WINDOW *main_window, struct app_state *state)
         }
         ++y;
     }
-    // wrefresh(main_window);
 }
 
 void render_version()
