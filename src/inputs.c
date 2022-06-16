@@ -116,6 +116,6 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         }
         render(main_window, state);
     }
-    clrtoeol();
+    // clrtoeol();
     wrefresh(main_window);
 }
