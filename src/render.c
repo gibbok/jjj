@@ -8,7 +8,7 @@ WINDOW *render_window()
 {
     WINDOW *main_window = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
     keypad(main_window, TRUE);
-    refresh();
+    wrefresh(main_window);
     return main_window;
 }
 
