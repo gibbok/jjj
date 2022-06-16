@@ -36,11 +36,6 @@ void select_prev_item(WINDOW *main_window, struct app_state *state)
         state->user_highlight = state->dir_entries_total - 1;
     else
         --state->user_highlight;
-
-    // if (state->user_highlight >= state->window_row)
-    // {
-    //     wscrl(main_window, 1);
-    // }
 }
 
 void select_next_item(WINDOW *main_window, struct app_state *state)
