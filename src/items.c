@@ -26,9 +26,9 @@ int sorting_comparator(const void *d1, const void *d2)
 void list_items_in_dir(struct app_state *state)
 {
     int allocation_count = 1;
-    int size = 500;
+    int allocation_size = 500;
 
-    state->dir_entries = malloc((sizeof(struct app_state) * size));
+    state->dir_entries = malloc((sizeof(struct app_state) * allocation_size));
 
     if (state->dir_entries == NULL)
     {
@@ -48,11 +48,11 @@ void list_items_in_dir(struct app_state *state)
 
     while ((dir_entry = readdir(dr)) != NULL)
     {
-        if (i == size)
+        if (i == allocation_size)
         {
             ++allocation_count;
-            size = size * allocation_count;
-            state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * size);
+            allocation_size = allocation_size * allocation_count;
+            state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * allocation_size);
         }
 
         if (state->dir_entries == NULL)
