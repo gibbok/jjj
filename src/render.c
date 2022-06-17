@@ -29,7 +29,7 @@ void render_item(WINDOW *main_window, int y, int x, char *name, bool is_dir, boo
 void render(WINDOW *main_window, struct app_state *state)
 {
     werase(main_window);
-    wrefresh(main_window);
+
     int x, y, i;
 
     x = RENDER_AT_WINDOW_POSITION_X;
@@ -60,6 +60,7 @@ void render(WINDOW *main_window, struct app_state *state)
         }
         ++y;
     }
+    wrefresh(main_window);
 }
 
 void render_version()

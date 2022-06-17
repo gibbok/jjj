@@ -113,7 +113,10 @@ void reset_app_state(struct app_state *state)
 
 void change_dir_up(struct app_state *state)
 {
-    chdir("..");
+    if (strcmp(state->cwd, "/") > 0)
+    {
+        chdir("..");
+    }
 }
 
 void set_cwd_to_user_path(struct app_state *state, char *user_path)
