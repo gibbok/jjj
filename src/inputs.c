@@ -115,7 +115,6 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         }
 
         werase(main_window);
-        wclear(main_window);
         render(main_window, state);
         wrefresh(main_window);
     }
