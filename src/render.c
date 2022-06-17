@@ -28,10 +28,6 @@ void render_item(WINDOW *main_window, int y, int x, char *name, bool is_dir, boo
 
 void render(WINDOW *main_window, struct app_state *state)
 {
-    wrefresh(main_window);
-    werase(main_window);
-    wclear(main_window);
-
     int x, y, i;
 
     x = RENDER_AT_WINDOW_POSITION_X;
