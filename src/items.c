@@ -5,6 +5,12 @@
 #include "global.h"
 #include "render.c"
 
+void reset_app_state(struct app_state *state)
+{
+    state->user_highlight = 0;
+    state->dir_entries_total = 0;
+}
+
 void get_cwd(struct app_state *state)
 {
     char cwd[FILENAME_MAX];
@@ -25,6 +31,8 @@ int sorting_comparator(const void *d1, const void *d2)
 
 void list_items_in_dir(struct app_state *state)
 {
+    reset_app_state(state);
+
     int allocation_count = 1;
     int allocation_size = 500;
 
@@ -100,12 +108,6 @@ void change_dir(struct app_state *state)
     chdir(state->dir_entries[idx].name);
 }
 
-void reset_app_state(struct app_state *state)
-{
-    state->user_highlight = 0;
-    state->dir_entries_total = 0;
-}
-
 void change_dir_up(struct app_state *state)
 {
     if (strcmp(state->cwd, "/") > 0)
@@ -128,6 +130,7 @@ void initializa_state(struct app_state *state, char *user_path)
 
 void update_app_state(struct app_state *state)
 {
+    // reset_app_state(state);
     get_cwd(state);
     list_items_in_dir(state);
 }
@@ -135,16 +138,4 @@ void update_app_state(struct app_state *state)
 bool is_active_item_dir(struct app_state *state)
 {
     return state->dir_entries[state->user_highlight].is_dir;
-}
-
-void refresh_screen(WINDOW *main_window, struct app_state *state)
-{
-    bool can_reset = is_active_item_dir(state);
-    if (can_reset == true)
-    {
-        reset_app_state(state);
-    }
-    update_app_state(state);
-    render(main_window, state);
-    wclear(main_window);
 }
