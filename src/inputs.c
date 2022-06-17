@@ -34,7 +34,6 @@ void select_prev_item(WINDOW *main_window, struct app_state *state)
 {
     if (state->user_highlight == 0)
     {
-
         state->user_highlight = state->dir_entries_total - 1;
     }
     else
@@ -47,7 +46,6 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
 {
     if (state->user_highlight == state->dir_entries_total - 1)
     {
-
         state->user_highlight = 0;
     }
     else
@@ -115,7 +113,7 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             update_app_state(state);
             break;
         }
-        // clearok(main_window, true);
+        werase(main_window);
         render(main_window, state);
     }
 }
