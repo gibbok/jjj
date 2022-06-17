@@ -31,8 +31,6 @@ int sorting_comparator(const void *d1, const void *d2)
 
 void list_items_in_dir(struct app_state *state)
 {
-    reset_app_state(state);
-
     int allocation_count = 1;
     int allocation_size = 500;
 
@@ -134,7 +132,7 @@ void update_app_state(struct app_state *state)
     list_items_in_dir(state);
 }
 
-bool is_active_item_dir(struct app_state *state)
-{
-    return state->dir_entries[state->user_highlight].is_dir;
-}
+// bool is_active_item_dir(struct app_state *state)
+// {
+//     return state->dir_entries[state->user_highlight].is_dir;
+// }
