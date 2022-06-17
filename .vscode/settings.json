@@ -6,6 +6,8 @@
         "algorithm": "c",
         "string.h": "c",
         "ncurses.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "locale": "c",
+        "string": "c"
     }
 }

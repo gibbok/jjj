@@ -1,1 +1,3 @@
-problem is the screen is not being updated properly, I need to clear the screen
+- visit src
+- click r multiple time fast
+- parent screen visited of src is visible in screen inside src
