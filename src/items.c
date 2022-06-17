@@ -102,11 +102,6 @@ void change_dir(struct app_state *state)
 
 void reset_app_state(struct app_state *state)
 {
-    for (int i = 0; i <= state->dir_entries_total; ++i)
-    {
-        state->dir_entries[i].is_dir = false;
-        strcpy(state->dir_entries[i].name, "");
-    }
     state->user_highlight = 0;
     state->dir_entries_total = 0;
 }
