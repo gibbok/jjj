@@ -10,13 +10,13 @@
 				"-g",
 				"${file}",
 				"-o",
-				"${workspaceFolder}/bin/${fileBasenameNoExtension}",
+				"${workspaceFolder}/bin/macos-x86-64/jjj",
 				"-lncurses"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
 			},
-			"problemMatcher": [
+			"problemMatcher": [q
 				"$gcc"
 			],
 			"group": {

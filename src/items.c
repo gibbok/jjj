@@ -27,7 +27,7 @@ void list_items_in_dir(struct app_state *state)
 {
     int allocation_count = 1;
     int allocation_size = 500;
-    
+
     free(state->dir_entries);
     state->dir_entries = malloc((sizeof(struct app_state) * allocation_size));
 
@@ -88,11 +88,10 @@ void list_items_in_dir(struct app_state *state)
             break;
         }
     }
-    
-    closedir(dr);
-    
-    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), sorting_comparator);
 
+    closedir(dr);
+
+    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), sorting_comparator);
 }
 
 void change_dir(struct app_state *state)
