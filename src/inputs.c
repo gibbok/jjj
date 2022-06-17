@@ -32,32 +32,34 @@ void validate_inputs(int argc, char *argv[])
 
 void select_prev_item(WINDOW *main_window, struct app_state *state)
 {
-    // if (state->user_highlight > 0)
-    // {
-    //     --state->user_highlight;
-    // }
     if (state->user_highlight == 0)
+    {
+
         state->user_highlight = state->dir_entries_total - 1;
+    }
     else
+    {
         --state->user_highlight;
+    }
 }
 
 void select_next_item(WINDOW *main_window, struct app_state *state)
 {
-    // if (state->user_highlight < state->dir_entries_total - 1)
-    // {
-    //     ++state->user_highlight;
-    // }
     if (state->user_highlight == state->dir_entries_total - 1)
-        state->user_highlight = 0;
-    else
-        ++state->user_highlight;
-
-    // SPO continue here
-    if (state->user_highlight >= state->window_row)
     {
-        wscrl(main_window, 1);
+
+        state->user_highlight = 0;
     }
+    else
+    {
+        ++state->user_highlight;
+    }
+
+    // // SPO continue here
+    // if (state->user_highlight >= state->window_row)
+    // {
+    //     wscrl(main_window, 1);
+    // }
 }
 
 void visit_selected_item(WINDOW *main_window, struct app_state *state)
