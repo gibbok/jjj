@@ -23,7 +23,7 @@ dev:
 	make clean && make mac-dev && make run
 
 run:
-	./bin/${BIN_MACOS}/${PROGRAM} /Users
+	./bin/${BIN_MACOS}/${PROGRAM} . 
 
 build-linux:
 	docker build -t jjj .

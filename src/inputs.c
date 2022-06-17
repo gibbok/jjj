@@ -30,32 +30,46 @@ void validate_inputs(int argc, char *argv[])
     }
 }
 
-void select_prev_item(struct app_state *state)
+void select_prev_item(WINDOW *main_window, struct app_state *state)
 {
     if (state->user_highlight == 0)
+    {
         state->user_highlight = state->dir_entries_total - 1;
+    }
     else
+    {
         --state->user_highlight;
+    }
 }
 
-void select_next_item(struct app_state *state)
+void select_next_item(WINDOW *main_window, struct app_state *state)
 {
     if (state->user_highlight == state->dir_entries_total - 1)
+    {
         state->user_highlight = 0;
+    }
     else
+    {
         ++state->user_highlight;
+    }
+
+    // // SPO continue here
+    // if (state->user_highlight >= state->window_row)
+    // {
+    //     wscrl(main_window, 1);
+    // }
 }
 
 void visit_selected_item(WINDOW *main_window, struct app_state *state)
 {
     change_dir(state);
-    refresh_screen(main_window, state);
+    update_app_state(state);
 }
 
 void visit_parent_item(WINDOW *main_window, struct app_state *state)
 {
     change_dir_up(state);
-    refresh_screen(main_window, state);
+    update_app_state(state);
 }
 
 void return_selected_item(struct app_state *state)
@@ -74,11 +88,11 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         {
         case KEY_UP:
         case KEY_K:
-            select_prev_item(state);
+            select_prev_item(main_window, state);
             break;
         case KEY_DOWN:
         case KEY_J:
-            select_next_item(state);
+            select_next_item(main_window, state);
             break;
         case KEY_RIGHT:
         case KEY_L:
@@ -96,14 +110,12 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
         case KEY_ESC:
             exit_with_success();
         case KEY_R:
-            refresh_screen(main_window, state);
-            break;
-        default:
-            refresh();
+            update_app_state(state);
             break;
         }
+
+        werase(main_window);
         render(main_window, state);
+        wrefresh(main_window);
     }
-    clrtoeol();
-    refresh();
 }

@@ -5,6 +5,12 @@
 #include "global.h"
 #include "render.c"
 
+void reset_app_state(struct app_state *state)
+{
+    state->user_highlight = 0;
+    state->dir_entries_total = 0;
+}
+
 void get_cwd(struct app_state *state)
 {
     char cwd[FILENAME_MAX];
@@ -25,7 +31,12 @@ int sorting_comparator(const void *d1, const void *d2)
 
 void list_items_in_dir(struct app_state *state)
 {
-    state->dir_entries = malloc((2 * sizeof(struct app_state)));
+    int allocation_count = 1;
+    int allocation_size = 500;
+
+    // free(state->dir_entries);
+    state->dir_entries = malloc((sizeof(struct app_state) * allocation_size));
+
     if (state->dir_entries == NULL)
     {
         printf("jjj: Error: Could not allocate memory.");
@@ -41,9 +52,16 @@ void list_items_in_dir(struct app_state *state)
     }
 
     int i = 0;
+
     while ((dir_entry = readdir(dr)) != NULL)
     {
-        state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * 2 + i);
+        if (i == allocation_size)
+        {
+            ++allocation_count;
+            allocation_size = allocation_size * allocation_count;
+            state->dir_entries = realloc(state->dir_entries, sizeof(struct app_state) * allocation_size);
+        }
+
         if (state->dir_entries == NULL)
         {
             printf("jjj: Error: Could not resize memory.");
@@ -56,7 +74,8 @@ void list_items_in_dir(struct app_state *state)
         {
         case DT_DIR:
             /* Excludes special name-inode from the result of the list. */
-            if (strcmp(dir_entry->d_name, ".") == 0 || strcmp(dir_entry->d_name, "..") == 0)
+            if (strcmp(dir_entry->d_name, ".") == 0 ||
+                strcmp(dir_entry->d_name, "..") == 0)
             {
                 break;
             }
@@ -76,9 +95,9 @@ void list_items_in_dir(struct app_state *state)
         }
     }
 
-    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), sorting_comparator);
-
     closedir(dr);
+
+    qsort(state->dir_entries, state->dir_entries_total, sizeof(struct dir_item), sorting_comparator);
 }
 
 void change_dir(struct app_state *state)
@@ -87,20 +106,12 @@ void change_dir(struct app_state *state)
     chdir(state->dir_entries[idx].name);
 }
 
-void reset_app_state(struct app_state *state)
-{
-    for (int i = 0; i <= state->dir_entries_total; ++i)
-    {
-        state->dir_entries[i].is_dir = false;
-        strcpy(state->dir_entries[i].name, "");
-    }
-    state->user_highlight = 0;
-    state->dir_entries_total = 0;
-}
-
 void change_dir_up(struct app_state *state)
 {
-    chdir("..");
+    if (strcmp(state->cwd, "/") > 0)
+    {
+        chdir("..");
+    }
 }
 
 void set_cwd_to_user_path(struct app_state *state, char *user_path)
@@ -117,23 +128,12 @@ void initializa_state(struct app_state *state, char *user_path)
 
 void update_app_state(struct app_state *state)
 {
+    reset_app_state(state);
     get_cwd(state);
     list_items_in_dir(state);
 }
 
-bool is_active_item_dir(struct app_state *state)
-{
-    return state->dir_entries[state->user_highlight].is_dir;
-}
-
-void refresh_screen(WINDOW *main_window, struct app_state *state)
-{
-    bool can_reset = is_active_item_dir(state);
-    if (can_reset == true)
-    {
-        reset_app_state(state);
-    }
-    update_app_state(state);
-    render(main_window, state);
-    wclear(main_window);
-}
+// bool is_active_item_dir(struct app_state *state)
+// {
+//     return state->dir_entries[state->user_highlight].is_dir;
+// }

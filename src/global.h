@@ -39,4 +39,6 @@ struct app_state
     int dir_entries_total;
     int user_highlight;
     int user_key_pressed;
+    int window_row;
+    int window_col;
 };

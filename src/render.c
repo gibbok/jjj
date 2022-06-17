@@ -8,7 +8,6 @@ WINDOW *render_window()
 {
     WINDOW *main_window = newwin(0, 0, RENDER_AT_WINDOW_POSITION_Y, RENDER_AT_WINDOW_POSITION_X);
     keypad(main_window, TRUE);
-    refresh();
     return main_window;
 }
 
@@ -42,6 +41,8 @@ void render(WINDOW *main_window, struct app_state *state)
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 21, x, "user_key_pressed %d\n", state->user_key_pressed);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 23, x, "cwd %s\n", state->cwd);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 25, x, "dir_entries_total %d\n", state->dir_entries_total);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 27, x, "window_row %d\n", state->window_row);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 28, x, "window_col %d\n", state->window_col);
     }
 
     for (i = 0; i <= state->dir_entries_total; ++i)
@@ -57,7 +58,6 @@ void render(WINDOW *main_window, struct app_state *state)
         }
         ++y;
     }
-    wrefresh(main_window);
 }
 
 void render_version()
