@@ -130,7 +130,6 @@ void initializa_state(struct app_state *state, char *user_path)
 
 void update_app_state(struct app_state *state)
 {
-    // reset_app_state(state);
     get_cwd(state);
     list_items_in_dir(state);
 }

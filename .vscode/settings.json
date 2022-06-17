@@ -5,6 +5,7 @@
         "limits.h": "c",
         "algorithm": "c",
         "string.h": "c",
-        "ncurses.h": "c"
+        "ncurses.h": "c",
+        "unistd.h": "c"
     }
 }
