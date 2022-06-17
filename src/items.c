@@ -27,7 +27,8 @@ void list_items_in_dir(struct app_state *state)
 {
     int allocation_count = 1;
     int allocation_size = 500;
-
+    
+    free(state->dir_entries);
     state->dir_entries = malloc((sizeof(struct app_state) * allocation_size));
 
     if (state->dir_entries == NULL)
@@ -36,7 +37,7 @@ void list_items_in_dir(struct app_state *state)
     }
 
     struct dirent *dir_entry;
-    // SIZE_DIR_ITEMS
+
     DIR *dr = opendir(state->cwd);
 
     if (dr == NULL)
