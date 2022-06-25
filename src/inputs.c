@@ -40,6 +40,15 @@ void select_prev_item(WINDOW *main_window, struct app_state *state)
     {
         --state->user_highlight;
     }
+
+    if (state->user_highlight >= state->window_row)
+    {
+        --state->window_scroll;
+    }
+    else
+    {
+        state->window_scroll = 0;
+    }
 }
 
 void select_next_item(WINDOW *main_window, struct app_state *state)
@@ -51,6 +60,15 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     else
     {
         ++state->user_highlight;
+    }
+
+    if (state->user_highlight >= state->window_row)
+    {
+        ++state->window_scroll;
+    }
+    else
+    {
+        state->window_scroll = 0;
     }
 
     // // SPO continue here

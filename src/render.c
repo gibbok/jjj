@@ -45,7 +45,7 @@ void render(WINDOW *main_window, struct app_state *state)
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 28, x, "window_col %d\n", state->window_col);
     }
 
-    for (i = 0; i <= state->dir_entries_total; ++i)
+    for (i = 0 + state->window_scroll; i <= state->dir_entries_total; ++i)
     {
         if (state->user_highlight == i)
         {
