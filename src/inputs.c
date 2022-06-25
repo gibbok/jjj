@@ -66,16 +66,6 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
     {
         ++state->window_scroll;
     }
-    else
-    {
-        state->window_scroll = 0;
-    }
-
-    // // SPO continue here
-    // if (state->user_highlight >= state->window_row)
-    // {
-    //     wscrl(main_window, 1);
-    // }
 }
 
 void visit_selected_item(WINDOW *main_window, struct app_state *state)
