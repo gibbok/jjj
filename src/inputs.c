@@ -32,11 +32,7 @@ void validate_inputs(int argc, char *argv[])
 
 void select_prev_item(WINDOW *main_window, struct app_state *state)
 {
-    if (state->user_highlight == 0)
-    {
-        // state->user_highlight = state->dir_entries_total - 1;
-    }
-    else
+    if (state->user_highlight > 0)
     {
         --state->user_highlight;
     }
@@ -53,11 +49,7 @@ void select_prev_item(WINDOW *main_window, struct app_state *state)
 
 void select_next_item(WINDOW *main_window, struct app_state *state)
 {
-    if (state->user_highlight == state->dir_entries_total - 1)
-    {
-        // state->user_highlight = 0;
-    }
-    else
+    if (state->user_highlight < state->dir_entries_total - 1)
     {
         ++state->user_highlight;
     }
