@@ -28,6 +28,8 @@ void detect_version_argument(char *user_input)
 void get_size_window(WINDOW *main_window, struct app_state *state)
 {
     getmaxyx(stdscr, state->window_row, state->window_col);
+    state->window_row = state->window_row - WINDOW_SAFE_MARGIN_Y;
+    state->window_col = state->window_col - WINDOW_SAFE_MARGIN_X;
 }
 
 int main(int argc, char *argv[])
@@ -38,6 +40,7 @@ int main(int argc, char *argv[])
 
     struct app_state state = {};
     state.user_highlight = 0;
+    state.window_scroll = 0;
 
     clear();
     noecho();
