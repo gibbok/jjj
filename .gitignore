@@ -1,3 +1,6 @@
+# Tests
+test-files
+
 # IDE
 !.vscode
 bin/*

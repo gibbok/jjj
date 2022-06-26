@@ -1,36 +1,10 @@
-/*  Entry point and curses specifics */
+/*  App entry point and curses specifics */
 
 #include "global.h"
 #include "items.c"
 #include "render.c"
 #include "inputs.c"
-
-/*
- Using curses with `initscr()` or `newterm()` makes it impossible to also pipe output into some other Linux utility.
- Instead, we use `/dev/tty` for both input and output so the result of this program could be easily piped.
-*/
-void pipe_curses_output_to_stdout()
-{
-    FILE *tty = fopen("/dev/tty", "r+");
-    SCREEN *screen = newterm(NULL, tty, tty);
-    set_term(screen);
-}
-
-void detect_version_argument(char *user_input)
-{
-    if (strcmp(user_input, "-v") == 0)
-    {
-        render_version();
-        exit_with_success();
-    }
-}
-
-void get_size_window(WINDOW *main_window, struct app_state *state)
-{
-    getmaxyx(stdscr, state->window_row, state->window_col);
-    state->window_row = state->window_row - WINDOW_SAFE_MARGIN_Y;
-    state->window_col = state->window_col - WINDOW_SAFE_MARGIN_X;
-}
+#include "utils.c"
 
 int main(int argc, char *argv[])
 {
@@ -40,7 +14,7 @@ int main(int argc, char *argv[])
 
     struct app_state state = {};
     state.user_highlight = 0;
-    state.window_scroll = 0;
+    state.window_rows_scroll = 0;
 
     clear();
     noecho();
@@ -51,9 +25,9 @@ int main(int argc, char *argv[])
     scrollok(main_window, true);
     get_size_window(main_window, &state);
 
-    validate_inputs(argc, argv);
+    validate_inputs(main_window, argc, argv);
 
-    detect_version_argument(argv[1]);
+    detect_version_argument(main_window, argv[1]);
 
     initializa_state(&state, argv[1]);
     render(main_window, &state);
@@ -61,6 +35,6 @@ int main(int argc, char *argv[])
     detect_key_pressed(main_window, &state);
 
     clrtoeol();
-    endwin();
+    quit(main_window);
     return 0;
 }

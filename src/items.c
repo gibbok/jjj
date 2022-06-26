@@ -9,7 +9,7 @@ void reset_app_state(struct app_state *state)
 {
     state->user_highlight = 0;
     state->dir_entries_total = 0;
-    state->window_scroll = 0;
+    state->window_rows_scroll = 0;
 }
 
 void get_cwd(struct app_state *state)
@@ -35,7 +35,6 @@ void list_items_in_dir(struct app_state *state)
     int allocation_count = 1;
     int allocation_size = 500;
 
-    // free(state->dir_entries);
     state->dir_entries = malloc((sizeof(struct app_state) * allocation_size));
 
     if (state->dir_entries == NULL)
@@ -133,8 +132,3 @@ void update_app_state(struct app_state *state)
     get_cwd(state);
     list_items_in_dir(state);
 }
-
-// bool is_active_item_dir(struct app_state *state)
-// {
-//     return state->dir_entries[state->user_highlight].is_dir;
-// }
