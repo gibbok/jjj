@@ -43,10 +43,10 @@ void render(WINDOW *main_window, struct app_state *state)
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 3, x_debug, "dir_entries_total %d\n", state->dir_entries_total);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 4, x_debug, "window_row %d\n", state->window_row);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 5, x_debug, "window_col %d\n", state->window_col);
-        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 6, x_debug, "window_scroll %d\n", state->window_scroll);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_Y + 6, x_debug, "window_row_scroll %d\n", state->window_row_scroll);
     }
 
-    for (i = 0 + state->window_scroll; i <= state->dir_entries_total; ++i)
+    for (i = 0 + state->window_row_scroll; i <= state->dir_entries_total; ++i)
     {
         if (state->user_highlight == i)
         {

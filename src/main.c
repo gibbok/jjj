@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     struct app_state state = {};
     state.user_highlight = 0;
-    state.window_scroll = 0;
+    state.window_row_scroll = 0;
 
     clear();
     noecho();

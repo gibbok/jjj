@@ -9,7 +9,7 @@ void reset_app_state(struct app_state *state)
 {
     state->user_highlight = 0;
     state->dir_entries_total = 0;
-    state->window_scroll = 0;
+    state->window_row_scroll = 0;
 }
 
 void get_cwd(struct app_state *state)
