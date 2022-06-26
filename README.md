@@ -43,7 +43,7 @@ jjj /Users | xargs open
 
 ## Video demo
 
-https://user-images.githubusercontent.com/17195702/173907303-8e6af4d3-898c-40d4-845f-a6585a38a816.mov
+https://user-images.githubusercontent.com/17195702/175805159-d82c101e-f8b2-4aae-9e8a-490b1d9ab716.mov
 
 ## For development
 
