@@ -37,13 +37,13 @@ void select_prev_item(WINDOW *main_window, struct app_state *state)
         --state->user_highlight;
     }
 
-    if (state->user_highlight >= state->window_row)
+    if (state->user_highlight >= state->window_rows)
     {
-        --state->window_row_scroll;
+        --state->window_rows_scroll;
     }
     else
     {
-        state->window_row_scroll = 0;
+        state->window_rows_scroll = 0;
     }
 }
 
@@ -54,16 +54,16 @@ void select_next_item(WINDOW *main_window, struct app_state *state)
         ++state->user_highlight;
     }
 
-    if (state->user_highlight >= state->window_row)
+    if (state->user_highlight >= state->window_rows)
     {
-        if (state->window_row_scroll + state->window_row < state->dir_entries_total)
+        if (state->window_rows_scroll + state->window_rows < state->dir_entries_total)
         {
-            ++state->window_row_scroll;
+            ++state->window_rows_scroll;
         }
     }
     else
     {
-        state->window_row_scroll = 0;
+        state->window_rows_scroll = 0;
     }
 }
 

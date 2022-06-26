@@ -37,16 +37,16 @@ void render(WINDOW *main_window, struct app_state *state)
 
     if (DEBUG_MODE == 1)
     {
-        int x_debug = state->window_col - 30;
+        int x_debug = state->window_cols - 30;
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 1, x_debug, "user_highlight %d\n", state->user_highlight);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 2, x_debug, "user_key_pressed %d\n", state->user_key_pressed);
         mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 3, x_debug, "dir_entries_total %d\n", state->dir_entries_total);
-        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 4, x_debug, "window_row %d\n", state->window_row);
-        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 5, x_debug, "window_col %d\n", state->window_col);
-        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 6, x_debug, "window_row_scroll %d\n", state->window_row_scroll);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 4, x_debug, "window_rows %d\n", state->window_rows);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 5, x_debug, "window_cols %d\n", state->window_cols);
+        mvwprintw(main_window, RENDER_AT_WINDOW_POSITION_ROWS + 6, x_debug, "window_rows_scroll %d\n", state->window_rows_scroll);
     }
 
-    for (i = 0 + state->window_row_scroll; i <= state->dir_entries_total; ++i)
+    for (i = 0 + state->window_rows_scroll; i <= state->dir_entries_total; ++i)
     {
         if (state->user_highlight == i)
         {
