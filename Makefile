@@ -33,5 +33,5 @@ build-linux:
 build-mac:
 	$(CC) ./src/main.c -o ./bin/macos-x86-64/${PROGRAM} $(LIBS)
 
-test-tiles:
+test-files:
 	touch file-{0001..4000}
