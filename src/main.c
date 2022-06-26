@@ -16,12 +16,12 @@ void pipe_curses_output_to_stdout()
     set_term(screen);
 }
 
-void detect_version_argument(char *user_input)
+void detect_version_argument(WINDOW *main_window, char *user_input)
 {
     if (strcmp(user_input, "-v") == 0)
     {
         render_version();
-        exit_with_success();
+        exit_with_success(main_window);
     }
 }
 
@@ -31,6 +31,7 @@ void get_size_window(WINDOW *main_window, struct app_state *state)
     state->window_rows = state->window_rows - WINDOW_SAFE_MARGIN_ROWS;
     state->window_cols = state->window_cols - WINDOW_SAFE_MARGIN_COLS;
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -51,9 +52,9 @@ int main(int argc, char *argv[])
     scrollok(main_window, true);
     get_size_window(main_window, &state);
 
-    validate_inputs(argc, argv);
+    validate_inputs(main_window, argc, argv);
 
-    detect_version_argument(argv[1]);
+    detect_version_argument(main_window, argv[1]);
 
     initializa_state(&state, argv[1]);
     render(main_window, &state);
@@ -61,6 +62,6 @@ int main(int argc, char *argv[])
     detect_key_pressed(main_window, &state);
 
     clrtoeol();
-    endwin();
+    quit(main_window);
     return 0;
 }

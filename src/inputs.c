@@ -4,29 +4,35 @@
 
 #include "global.h"
 
-void exit_with_success()
+void quit(WINDOW *main_window)
 {
+    delwin(main_window);
     endwin();
+}
+
+void exit_with_success(WINDOW *main_window)
+{
+    quit(main_window);
     exit(EXIT_SUCCESS);
 }
 
-void exit_with_failure()
+void exit_with_failure(WINDOW *main_window)
 {
-    endwin();
+    quit(main_window);
     exit(EXIT_FAILURE);
 }
 
-void validate_inputs(int argc, char *argv[])
+void validate_inputs(WINDOW *main_window, int argc, char *argv[])
 {
     if (argc < 2)
     {
         printf("jjj: Error: Invalid input. A valid path is required.");
-        exit_with_failure();
+        exit_with_failure(main_window);
     }
     if (argc > 2)
     {
         printf("jjj: Error: Invalid input. Only a single relative or absolute valid path is required.");
-        exit_with_failure();
+        exit_with_failure(main_window);
     }
 }
 
@@ -79,11 +85,11 @@ void visit_parent_item(WINDOW *main_window, struct app_state *state)
     update_app_state(state);
 }
 
-void return_selected_item(struct app_state *state)
+void return_selected_item(WINDOW *main_window, struct app_state *state)
 {
     render_active_item(state);
     free(state->dir_entries);
-    exit_with_success();
+    exit_with_success(main_window);
 }
 
 void detect_key_pressed(WINDOW *main_window, struct app_state *state)
@@ -111,11 +117,11 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             break;
         case KEY_SPACEBAR:
         case KEY_RETURN:
-            return_selected_item(state);
+            return_selected_item(main_window, state);
             break;
         case KEY_Q:
         case KEY_ESC:
-            exit_with_success();
+            exit_with_success(main_window);
         case KEY_R:
             update_app_state(state);
             break;

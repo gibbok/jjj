@@ -133,8 +133,3 @@ void update_app_state(struct app_state *state)
     get_cwd(state);
     list_items_in_dir(state);
 }
-
-// bool is_active_item_dir(struct app_state *state)
-// {
-//     return state->dir_entries[state->user_highlight].is_dir;
-// }
