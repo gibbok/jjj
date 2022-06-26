@@ -3,24 +3,7 @@
 #pragma once
 
 #include "global.h"
-
-void quit(WINDOW *main_window)
-{
-    delwin(main_window);
-    endwin();
-}
-
-void exit_with_success(WINDOW *main_window)
-{
-    quit(main_window);
-    exit(EXIT_SUCCESS);
-}
-
-void exit_with_failure(WINDOW *main_window)
-{
-    quit(main_window);
-    exit(EXIT_FAILURE);
-}
+#include "utils.c"
 
 void validate_inputs(WINDOW *main_window, int argc, char *argv[])
 {
