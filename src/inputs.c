@@ -110,8 +110,6 @@ void detect_key_pressed(WINDOW *main_window, struct app_state *state)
             break;
         }
 
-        werase(main_window);
-        render(main_window, state);
-        wrefresh(main_window);
+        update_screen(main_window, state);
     }
 }

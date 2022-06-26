@@ -1,4 +1,4 @@
-/*  Entry point and curses specifics */
+/*  App entry point and curses specifics */
 
 #include "global.h"
 #include "items.c"

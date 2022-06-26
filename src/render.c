@@ -65,3 +65,10 @@ void render_version()
 {
     printf("jjj version: %s", APP_VERSION);
 }
+
+void update_screen(WINDOW *main_window, struct app_state *state)
+{
+    werase(main_window);
+    render(main_window, state);
+    wrefresh(main_window);
+}
