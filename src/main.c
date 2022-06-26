@@ -28,8 +28,8 @@ void detect_version_argument(char *user_input)
 void get_size_window(WINDOW *main_window, struct app_state *state)
 {
     getmaxyx(stdscr, state->window_row, state->window_col);
-    state->window_row = state->window_row - WINDOW_SAFE_MARGIN_Y;
-    state->window_col = state->window_col - WINDOW_SAFE_MARGIN_X;
+    state->window_row = state->window_row - WINDOW_SAFE_MARGIN_ROWS;
+    state->window_col = state->window_col - WINDOW_SAFE_MARGIN_COLS;
 }
 
 int main(int argc, char *argv[])
