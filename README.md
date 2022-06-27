@@ -23,7 +23,7 @@ jjj /Users | xargs open
 - Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries
 - Change the permission of the downloaded file using `chmod +x ./jjj`
 
-*Notes: To install jjj to macOS please follow these instructions [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac). In order to add jjj to your path follow this [guide](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7).*
+*Notes: to install jjj to macOS please follow these instructions [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac). In order to add jjj to your path follow this [guide](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7).*
 
 ## Key binding
 
