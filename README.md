@@ -18,6 +18,12 @@ Select a file and open it with macOS finder:
 jjj /Users | xargs open
 ```
 
+Select a folder and change directory:
+
+```shell
+cd $(jjj .)
+```
+
 ## Downloads
 
 - Visit the [release page](https://github.com/gibbok/jjj/releases) to download the binaries
