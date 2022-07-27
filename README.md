@@ -6,7 +6,7 @@
 
 Usage examples:
 
-Select a file and pipe it to less:
+Select a file and pipe it to cat:
 
 ```shell
 jjj . | xargs cat
